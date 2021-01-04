@@ -39,10 +39,11 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="uploadttdkamad">Tandatangan Kepala Madrasah</label>
-                                    <div class="text-center"
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px;">
-                                        <?php
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <label for="uploadttdkamad">Tandatangan Kepala Madrasah</label>
+                                        <div class="fileinput-new thumbnail img-raised text-center"
+                                            style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
+                                            <?php
                                             $image_kosong = array(
                                                             'src'   => 'assets/images/kosong.svg',
                                                             'alt'   => 'ttd-tu',
@@ -56,15 +57,19 @@
                                                             'height'=> '220'
                                                             );
                                         ?>
-                                        <?= ($kamad->ttd_kamad === '') ? img($image_kosong) : img($image_isi); ?>
-                                    </div>
-                                    <div
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px; margin-top:5px">
-                                        <input type="file" name="uploadttdkamad" id="uploadttdkamad">
+                                            <?= ($kamad->ttd_kamad === '') ? img($image_kosong) : img($image_isi); ?>
+                                        </div>
+                                        <div>
+                                            <span class="btn btn-raised btn-round btn-default btn-file mt-3">
+                                                <input type="file" name="uploadttdkamad" id="uploadttdkamad"></input>
+                                                <label class="fileinput-new text-black-50 m-auto">Pilih File</label>
+                                            </span>
+
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-md btn-primary" id="btn-simpan">
+                                    <button type="submit" class="btn btn-md btn-primary" id="btn-simpan-kamad">
                                         <i class="fa fa-save"></i> Simpan
                                     </button>
                                 </div>
@@ -103,10 +108,11 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="uploadttdtu">Tandatangan Tata Usaha</label>
-                                    <div class="text-center"
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px;">
-                                        <?php
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <label for="uploadttdtatausaha">Tandatangan Tata Usaha</label>
+                                        <div class="fileinput-new thumbnail img-raised text-center"
+                                            style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
+                                            <?php
                                             $image_kosong = array(
                                                             'src'   => 'assets/images/kosong.svg',
                                                             'alt'   => 'ttd-tu',
@@ -120,221 +126,241 @@
                                                             'height'=> '220'
                                                             );
                                         ?>
-                                        <?= ($tatausaha->ttd_tatausaha === '') ? img($image_kosong) : img($image_isi); ?>
-                                    </div>
-                                    <div
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px; margin-top:5px">
-                                        <input type="file" name="uploadttdtu" id="uploadttdtu">
+                                            <?= ($tatausaha->ttd_tatausaha === '') ? img($image_kosong) : img($image_isi); ?>
+                                        </div>
+                                        <div>
+                                            <span class="btn btn-raised btn-round btn-default btn-file mt-3">
+                                                <input type="file" name="uploadttdtatausaha"
+                                                    id="uploadttdtatausaha"></input>
+                                                <label class="fileinput-new text-black-50 m-auto">Pilih File</label>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-md btn-primary" id="btn-simpan">
+                                    <button type="submit" class="btn btn-md btn-primary" id="btn-simpan-tatausaha">
                                         <i class="fa fa-save"></i> Simpan
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <?= form_close();?>
-                        </>
                     </div>
+                    <?= form_close();?>
+                    </>
                 </div>
             </div>
-            <!--/.col-->
-            <div class="col-lg-12">
-                <div class="card border-left border-top border-right border-bottom mb-3">
-                    <div class="card-header">
-                        <h3>Bendahara</h3>
-                    </div>
-                    <div class="card-body text-primary">
-                        <?= form_open_multipart('sukema/editttdbendahara'); ?>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="hidden" name="idbendahara" value="<?= $bendahara->id_bendahara?>">
-                                <div class="form-group">
-                                    <label>Nama Tata Usaha<sup>
-                                            <font color="red" size="4">*</font>
-                                        </sup></label>
-                                    <input type="text" class="form-control" name="namabendahara"
-                                        placeholder="Nama bendahara" value="<?= $bendahara->nama_bendahara ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>NIP Tata usaha<sup>
-                                            <font color="red" size="4">*</font>
-                                        </sup></label>
-                                    <input type="text" class="form-control" name="nipbendahara"
-                                        placeholder="NIP bendahara" value="<?= $bendahara->nip_bendahara  ?>" required>
-                                </div>
+        </div>
+        <!--/.col-->
+        <div class="col-lg-12">
+            <div class="card border-left border-top border-right border-bottom mb-3">
+                <div class="card-header">
+                    <h3>Bendahara</h3>
+                </div>
+                <div class="card-body text-primary">
+                    <?= form_open_multipart('sukema/editttdbendahara'); ?>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="hidden" name="idbendahara" value="<?= $bendahara->id_bendahara?>">
+                            <div class="form-group">
+                                <label>Nama Tata Usaha<sup>
+                                        <font color="red" size="4">*</font>
+                                    </sup></label>
+                                <input type="text" class="form-control" name="namabendahara"
+                                    placeholder="Nama bendahara" value="<?= $bendahara->nama_bendahara ?>" required>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="uploadttdtu">Tandatangan Bendahara</label>
-                                    <div class="text-center"
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px;">
+                            <div class="form-group">
+                                <label>NIP Tata usaha<sup>
+                                        <font color="red" size="4">*</font>
+                                    </sup></label>
+                                <input type="text" class="form-control" name="nipbendahara" placeholder="NIP bendahara"
+                                    value="<?= $bendahara->nip_bendahara  ?>" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <label for="uploadttdtatausaha">Tandatangan Bendahara</label>
+                                    <div class="fileinput-new thumbnail img-raised text-center"
+                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
                                         <?php
                                             $image_kosong = array(
                                                             'src'   => 'assets/images/kosong.svg',
-                                                            'alt'   => 'ttd',
+                                                            'alt'   => 'ttd-digital',
                                                             'width' => '60%',
                                                             'height'=> '220'
                                                             );
                                             $image_isi = array(
                                                             'src'   => "/assets/images/signature/$bendahara->ttd_bendahara",
-                                                            'alt'   => 'ttd-tu',
+                                                            'alt'   => 'ttd-digital',
                                                             'width' => '60%',
                                                             'height'=> '220'
                                                             );
                                         ?>
                                         <?= ($bendahara->ttd_bendahara === '') ? img($image_kosong) : img($image_isi); ?>
                                     </div>
-                                    <div
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px; margin-top:5px">
-                                        <input type="file" name="uploadttdbendahara" id="uploadttdbendahara">
+                                    <div>
+                                        <span class="btn btn-raised btn-round btn-default btn-file mt-3">
+                                            <input type="file" name="uploadttdbendahara"
+                                                id="uploadttdbendahara"></input>
+                                            <label class="fileinput-new text-black-50 m-auto">Pilih File</label>
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-md btn-primary" id="btn-simpan">
-                                        <i class="fa fa-save"></i> Simpan
-                                    </button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-md btn-primary" id="btn-simpan-bendahara">
+                                    <i class="fa fa-save"></i> Simpan
+                                </button>
                             </div>
                         </div>
-                        <?= form_close();?>
-                        </>
                     </div>
+                    <?= form_close();?>
+                    </>
                 </div>
             </div>
-            <!--/.col-->
+        </div>
+        <!--/.col-->
 
-            <div class="col-lg-12">
-                <div class="card border-left border-top border-right border-bottom mb-3">
-                    <div class="card-header">
-                        <h3>Komite Sekolah</h3>
-                    </div>
-                    <div class="card-body text-primary">
-                        <?= form_open_multipart('sukema/editttdkomite'); ?>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="hidden" name="idkomite" value="<?= $komite->id_komite?>">
-                                <div class="form-group">
-                                    <label>Nama Komite Sekolah<sup>
-                                            <font color="red" size="4">*</font>
-                                        </sup></label>
-                                    <input type="text" class="form-control" name="namakomite" placeholder="Nama komite"
-                                        value="<?= $komite->nama_komite ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>NIP Komite Sekolah<sup>
-                                            <font color="red" size="4">*</font>
-                                        </sup></label>
-                                    <input type="text" class="form-control" name="nipkomite" placeholder="NIP komite"
-                                        value="<?= $komite->nip_komite  ?>" required>
-                                </div>
+        <div class="col-lg-12">
+            <div class="card border-left border-top border-right border-bottom mb-3">
+                <div class="card-header">
+                    <h3>Komite Sekolah</h3>
+                </div>
+                <div class="card-body text-primary">
+                    <?= form_open_multipart('sukema/editttdkomite'); ?>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="hidden" name="idkomite" value="<?= $komite->id_komite?>">
+                            <div class="form-group">
+                                <label>Nama Komite Sekolah<sup>
+                                        <font color="red" size="4">*</font>
+                                    </sup></label>
+                                <input type="text" class="form-control" name="namakomite" placeholder="Nama komite"
+                                    value="<?= $komite->nama_komite ?>" required>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="uploadttdkomite">Tandatangan Komite Sekolah</label>
-                                    <div class="text-center"
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px;">
+                            <div class="form-group">
+                                <label>NIP Komite Sekolah<sup>
+                                        <font color="red" size="4">*</font>
+                                    </sup></label>
+                                <input type="text" class="form-control" name="nipkomite" placeholder="NIP komite"
+                                    value="<?= $komite->nip_komite  ?>" required>
+                            </div>
+                        </div>
+                       <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <label for="uploadttdtatausaha">Tandatangan Komite Sekolah</label>
+                                    <div class="fileinput-new thumbnail img-raised text-center"
+                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
                                         <?php
                                             $image_kosong = array(
                                                             'src'   => 'assets/images/kosong.svg',
-                                                            'alt'   => 'ttd',
+                                                            'alt'   => 'ttd-digital',
                                                             'width' => '60%',
                                                             'height'=> '220'
                                                             );
                                             $image_isi = array(
                                                             'src'   => "/assets/images/signature/$komite->ttd_komite",
-                                                            'alt'   => 'ttd-tu',
+                                                            'alt'   => 'ttd-digital',
                                                             'width' => '60%',
                                                             'height'=> '220'
                                                             );
                                         ?>
                                         <?= ($komite->ttd_komite === '') ? img($image_kosong) : img($image_isi); ?>
                                     </div>
-                                    <div
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px; margin-top:5px">
-                                        <input type="file" name="uploadttdkomite" id="uploadttdkomite">
+                                    <div>
+                                        <span class="btn btn-raised btn-round btn-default btn-file mt-3">
+                                            <input type="file" name="uploadttdkomite"
+                                                id="uploadttdkomite"></input>
+                                            <label class="fileinput-new text-black-50 m-auto">Pilih File</label>
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-md btn-primary" id="btn-simpan">
-                                        <i class="fa fa-save"></i> Simpan
-                                    </button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-md btn-primary" id="btn-simpan-komite">
+                                    <i class="fa fa-save"></i> Simpan
+                                </button>
                             </div>
                         </div>
-                        <?= form_close();?>
-                        </>
                     </div>
+                    <?= form_close();?>
+                    </>
                 </div>
             </div>
-            <!--/.col-->
+        </div>
+        <!--/.col-->
 
-            <div class="col-lg-12">
-                <div class="card border-left border-top border-right border-bottom mb-3">
-                    <div class="card-header">
-                        <h3>Ketua Yayasan</h3>
-                    </div>
-                    <div class="card-body text-primary">
-                        <?= form_open_multipart('sukema/editttdyayasan'); ?>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <input type="hidden" name="idyayasan" value="<?= $yayasan->id_yayasan?>">
-                                <div class="form-group">
-                                    <label>Nama Ketua Yayasan<sup>
-                                            <font color="red" size="4">*</font>
-                                        </sup></label>
-                                    <input type="text" class="form-control" name="namayayasan"
-                                        placeholder="Nama yayasan" value="<?= $yayasan->nama_yayasan ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>NIP Ketua Yayasan<sup>
-                                            <font color="red" size="4">*</font>
-                                        </sup></label>
-                                    <input type="text" class="form-control" name="nipkomite" placeholder="NIP yayasan"
-                                        value="<?= $yayasan->nip_yayasan  ?>" required>
-                                </div>
+        <div class="col-lg-12">
+            <div class="card border-left border-top border-right border-bottom mb-3">
+                <div class="card-header">
+                    <h3>Ketua Yayasan</h3>
+                </div>
+                <div class="card-body text-primary">
+                    <?= form_open_multipart('sukema/editttdyayasan'); ?>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="hidden" name="idyayasan" value="<?= $yayasan->id_yayasan?>">
+                            <div class="form-group">
+                                <label>Nama Ketua Yayasan<sup>
+                                        <font color="red" size="4">*</font>
+                                    </sup></label>
+                                <input type="text" class="form-control" name="namayayasan" placeholder="Nama yayasan"
+                                    value="<?= $yayasan->nama_yayasan ?>" required>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="uploadttdyayasan">Tandatangan Ketua Yayasan</label>
-                                    <div class="text-center"
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px;">
+                            <div class="form-group">
+                                <label>NIP Ketua Yayasan<sup>
+                                        <font color="red" size="4">*</font>
+                                    </sup></label>
+                                <input type="text" class="form-control" name="nipkomite" placeholder="NIP yayasan"
+                                    value="<?= $yayasan->nip_yayasan  ?>" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <label for="uploadttdtatausaha">Tandatangan Ketua Yayasan</label>
+                                    <div class="fileinput-new thumbnail img-raised text-center"
+                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
                                         <?php
                                             $image_kosong = array(
                                                             'src'   => 'assets/images/kosong.svg',
-                                                            'alt'   => 'ttd',
+                                                            'alt'   => 'ttd-digital',
                                                             'width' => '60%',
                                                             'height'=> '220'
                                                             );
                                             $image_isi = array(
                                                             'src'   => "/assets/images/signature/$yayasan->ttd_yayasan",
-                                                            'alt'   => 'ttd-tu',
+                                                            'alt'   => 'ttd-digital',
                                                             'width' => '60%',
                                                             'height'=> '220'
                                                             );
                                         ?>
                                         <?= ($yayasan->ttd_yayasan === '') ? img($image_kosong) : img($image_isi); ?>
                                     </div>
-                                    <div
-                                        style="border:#d2d6de 1px solid; border-radius:10px; padding:10px; margin-top:5px">
-                                        <input type="file" name="uploadttdyayasan" id="uploadttdyayasan">
+                                    <div>
+                                        <span class="btn btn-raised btn-round btn-default btn-file mt-3">
+                                            <input type="file" name="uploadttdyayasan"
+                                                id="uploadttdyayasan"></input>
+                                            <label class="fileinput-new text-black-50 m-auto">Pilih File</label>
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-md btn-primary" id="btn-simpan">
-                                        <i class="fa fa-save"></i> Simpan
-                                    </button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-md btn-primary" id="btn-simpan-yayasan">
+                                    <i class="fa fa-save"></i> Simpan
+                                </button>
                             </div>
                         </div>
-                        <?= form_close();?>
-                        </>
                     </div>
+                    <?= form_close();?>
+                    </>
                 </div>
             </div>
-            <!--/.col-->
         </div>
-        <!--/.row-->
+        <!--/.col-->
     </div>
+    <!--/.row-->
+</div>
 </div>

@@ -122,13 +122,12 @@
                                         Inputkan Asal Surat!
                                     </div>
                                 </div>
-
-                                <label for="imgsurat">Upload Scan/Foto Surat</label>
-                                <div class="custom-file mb-3">
-                                    <!-- <label class="custom-file-label" for="uploadFoto">Pilih foto...</label> -->
-                                    <input type="file" id="imgsurat" name="imgsurat">
-
-                                </div>
+                                    <label for="imgsurat">Upload Scan/Foto Surat</label>
+                        
+                                    <div class="custom-file" style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
+                                        <input id="imgsurat" name="imgsurat" type="file" class="custom-file-input">
+                                        <label for="imgsurat" class="custom-file-label text-truncate">Pilih file...</label>
+                                    </div>
                                 <div class="modal-footer w-100">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                     <button type="submit" class="btn btn-primary" id="inputsurat">Simpan</button>

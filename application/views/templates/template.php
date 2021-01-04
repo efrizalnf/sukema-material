@@ -89,16 +89,16 @@ The above copyright notice and this permission notice shall be included in all c
                             <p>Logout</p>
                         </a>
                     </li>
-                   
+
                 </ul>
                 <hr>
                 <!-- Start Footer -->
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="float-center">
-                                    <a href="http://www.everyzalz.blogspot.com" target="_blank">
-                                        <h5>SUKEMA V.1.1</h5>
-                                    </a>
+                            <a href="http://www.everyzalz.blogspot.com" target="_blank">
+                                <h5>SUKEMA V.1.1</h5>
+                            </a>
                         </div>
                         <div class="copyright float-center">
                             &copy;
@@ -156,7 +156,8 @@ The above copyright notice and this permission notice shall be included in all c
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Selamat datang di Aplikasi SUKEMA!, Memudahkan anda untuk mengatur surat masuk dan keluar</a>
+                                    <a class="dropdown-item" href="#">Selamat datang di Aplikasi SUKEMA!, Memudahkan
+                                        anda untuk mengatur surat masuk dan keluar</a>
                                     <!-- <a class="dropdown-item" href="#">You have 5 new tasks</a>
                                     <a class="dropdown-item" href="#">You're now friend with Andrew</a>
                                     <a class="dropdown-item" href="#">Another Notification</a>
@@ -296,6 +297,11 @@ The above copyright notice and this permission notice shall be included in all c
             [10, 25, 50, -1],
             [10, 25, 50, "All"]
         ]
+    });
+    
+    $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
     });
     $(document).ready(function() {
         $().ready(function() {

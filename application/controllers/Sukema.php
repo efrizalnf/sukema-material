@@ -20,7 +20,6 @@ class Sukema extends CI_Controller {
 	
 	public function index()
 	{	
-		// $this->setsession();
 		$datasession['enhas_account'] = $this->db->get_where('enhas_account', ['username' => $this->session->userdata('username')])->row_array();
 		$this->template->load('templates/template',  $datasession);
 
@@ -31,7 +30,6 @@ class Sukema extends CI_Controller {
 
 	public function dashboard()
 	{	
-		// $this->setsession();
 		// $data['guru'] = count($this->enhamodel->getGuru());
 		// $data['file'] = count($this->enhamodel->getCountFile());
 		// $data['info'] = count($this->enhamodel->getCountInfo());
@@ -41,14 +39,11 @@ class Sukema extends CI_Controller {
 	/* Edt Profile */
 	public function profil()
 	{
-		// $this->setsession();
 		$data['profile'] = $this->enhamodel->getProfile();
 		$this->template->load('templates/template', 'form_profile' , $data);
 	}	
 
 	public function editprofil(){
-		// $this->setsession();
-		
 		$id = $this->input->post('idskul');
 		$jejangsekolah = $this->input->post('jenjang');
 		$nsm = $this->input->post('nsm');
@@ -178,7 +173,6 @@ class Sukema extends CI_Controller {
 	/* Edt Signature Kamad */
 	public function signature()
 	{
-		// $this->setsession();
 		$data['kamad'] = $this->enhamodel->getTtdKamad();
 		$data['tatausaha'] = $this->enhamodel->getTtdTatausaha();
 		$data['bendahara'] = $this->enhamodel->getTtdBendahara();
@@ -188,8 +182,6 @@ class Sukema extends CI_Controller {
 	}	
 
 	public function editttdkamad(){
-		// $this->setsession();
-		
 		$id = $this->input->post('idkamad');
 		$namakamad = $this->input->post('namakamad');
 		$nipkamad = $this->input->post('nipkamad');
@@ -207,7 +199,7 @@ class Sukema extends CI_Controller {
 
 			$this->enhamodel->updatettdkamad($data, $id);
 			$this->session->set_flashdata('message', 'Data berhasil di ubah');
-			redirect('sukema/datattdkamad');
+			redirect('sukema/signature');
 			
 		}else{
 			$loadfoto['ttd'] = $this->enhamodel->getTtdKamad();
@@ -224,13 +216,11 @@ class Sukema extends CI_Controller {
 
 			$this->enhamodel->updatettdkamad($data, $id);
 			$this->session->set_flashdata('message', 'Data berhasil di ubah');
-			redirect('sukema/datattdkamad');
+			redirect('sukema/signature');
 		}
 	}
 
 	public function editttdtatausaha(){
-		// $this->setsession();
-		
 		$id = $this->input->post('idtu');
 		$namatatausaha = $this->input->post('namatatausaha');
 		$niptatausaha = $this->input->post('niptatausaha');
@@ -271,8 +261,6 @@ class Sukema extends CI_Controller {
 
 
 	public function editttdbendahara(){
-		// $this->setsession();
-		
 		$id = $this->input->post('idbendahara');
 		$namabendahara = $this->input->post('namabendahara');
 		$nipbendahara = $this->input->post('nipbendahara');
@@ -312,8 +300,6 @@ class Sukema extends CI_Controller {
 	}
 
 	public function editttdkomite(){
-		// $this->setsession();
-		
 		$id = $this->input->post('idkomite');
 		$namakomite = $this->input->post('namakomite');
 		$nipkomite = $this->input->post('nipkomite');
@@ -354,8 +340,6 @@ class Sukema extends CI_Controller {
 
 
 	public function editttdyayasan(){
-		// $this->setsession();
-		
 		$id = $this->input->post('idyayasan');
 		$namayayasan = $this->input->post('namayayasan');
 		$nipyayasan = $this->input->post('nipyayasan');
@@ -396,7 +380,6 @@ class Sukema extends CI_Controller {
 
 	public function suratmasuk()
 	{	
-		// $this->setsession();
 		$data['suratmasuk'] = $this->enhamodel->getSuratMasuk();
 		$this->template->load('templates/template', 'form_suratmasuk', $data);
 		$this->load->view('form_suratmasuk');
@@ -412,7 +395,6 @@ class Sukema extends CI_Controller {
 
 	public function deletesuratmasuk($id)
 	{
-		// $this->setsession();
 		$surat['surat'] = $this->enhamodel->getSuratMasukById($id);
 		if ($surat['surat']['img_surat'] != null) {
 			$path = FCPATH.'assets/images/suratmasuk/'.$surat['surat']['img_surat'];

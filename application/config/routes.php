@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'sukema';
-$route['sukema'] = 'sukema/dashboard';
+$route['sukema'] = 'login';
 $route['login'] = 'login/validasi';
 $route['404_override'] = 'NotFound';
 $route['translate_uri_dashes'] = FALSE;
