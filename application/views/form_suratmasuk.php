@@ -8,10 +8,10 @@
                 <li class="breadcrumb-item active" aria-current="page"><span>Surat Masuk</span></li>
             </ol>
         </nav>
-        <div class="row">
-            <!-- <p>*Silahkan Inputkan surat masuk</p> -->
             <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('message')?>"></div>
             <div class="flash-data-err" data-flashdata="<?php echo $this->session->flashdata('error')?>"></div>
+        <div class="row">
+            <!-- <p>*Silahkan Inputkan surat masuk</p> -->
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header-primary">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
 
-                <!-- Input Surat Masuk -->
+                <!-- ModalSurat Masuk -->
                 <div class="modal fade" id="inputEnhasModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -139,7 +139,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Input Surat Masuk -->
+                <!-- End Modal Surat Masuk -->
             </div>
         </div>
         <!-- end row -->

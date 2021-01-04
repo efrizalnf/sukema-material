@@ -9,7 +9,7 @@ public function __construct()
 	}
 
 
-	public function validasi()
+	public function index()
 	{	
 		$data['profile'] = $this->enhamodel->getProfile();
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');

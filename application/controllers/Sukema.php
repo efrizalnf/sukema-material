@@ -24,7 +24,7 @@ class Sukema extends CI_Controller {
 		$this->template->load('templates/template',  $datasession);
 
 		if ($this->form_validation->run() == false) {
-			$this->load->view('login');
+			$this->load->view('login/index');
 		}
 	}
 

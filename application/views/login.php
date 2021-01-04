@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ENHAS Web Admin Login</title>
+    <title>SUKEMA</title>
     <link rel="icon" href="<?php echo base_url()?>assets/landing/img/favicon.ico">
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url();?>assets/login/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -49,7 +49,7 @@
                                         <h1 class="h4 text-gray-900 mb-4"><b>SUKEMA <br> Aplikasi Manajemen Surat</h1>
                                     </div>
                                     <?php echo $this->session->flashdata('message');?>
-                                    <form class="user" method="post" action="<?php echo base_url('login/validasi');?>">
+                                    <form class="user" method="post" action="<?php echo base_url('login/index');?>">
 
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="username"

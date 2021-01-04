@@ -93,7 +93,7 @@ The above copyright notice and this permission notice shall be included in all c
                 </ul>
                 <hr>
                 <!-- Start Footer -->
-                <footer class="footer">
+                <div class="footer">
                     <div class="container-fluid">
                         <div class="float-center">
                             <a href="http://www.everyzalz.blogspot.com" target="_blank">
@@ -108,7 +108,7 @@ The above copyright notice and this permission notice shall be included in all c
                             <a href="http://www.everyzalz.blogspot.com" target="_blank">zlz</a>
                         </div>
                     </div>
-                </footer>
+                </div>
                 <!-- End Footer -->
             </div>
         </div>
