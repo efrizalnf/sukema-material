@@ -292,17 +292,29 @@ The above copyright notice and this permission notice shall be included in all c
         $('#summernote').summernote();
     });
 
+    /* Data Table */
+
     $('.tabel-surat').DataTable({
         "lengthMenu": [
             [10, 25, 50, -1],
             [10, 25, 50, "All"]
         ]
     });
-    
+
+    /* custom file upload input */
+
     $('.custom-file-input').on('change', function() {
         let fileName = $(this).val().split('\\').pop();
         $(this).next('.custom-file-label').addClass("selected").html(fileName);
     });
+
+    /* date time picker */
+    $(function() {
+        $('#datetimepicker').datetimepicker({
+            locale: 'en'
+        });
+    });
+
     $(document).ready(function() {
         $().ready(function() {
             $sidebar = $('.sidebar');

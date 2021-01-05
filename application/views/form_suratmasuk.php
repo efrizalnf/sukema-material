@@ -8,8 +8,8 @@
                 <li class="breadcrumb-item active" aria-current="page"><span>Surat Masuk</span></li>
             </ol>
         </nav>
-            <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('message')?>"></div>
-            <div class="flash-data-err" data-flashdata="<?php echo $this->session->flashdata('error')?>"></div>
+        <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('message')?>"></div>
+        <div class="flash-data-err" data-flashdata="<?php echo $this->session->flashdata('error')?>"></div>
         <div class="row">
             <!-- <p>*Silahkan Inputkan surat masuk</p> -->
             <div class="col-md-12">
@@ -52,7 +52,7 @@
                                         <td class="align-middle"><?= $item['perihal']?></td>
                                         <td class="align-middle"> <img
                                                 class="rounded border border-light mx-auto d-block m-3"
-                                                src="<?= base_url() . 'assets/images/suratmasuk/'.$item['img_surat'];?>"
+                                                src="<?= base_url().'assets/images/suratmasuk/'.$item['img_surat'];?>"
                                                 width="60" height="60" id="previmg" name="previmg"
                                                 value="<?= $item['img_surat']?>"></td>
                                         <td class="td-actions text-center align-middle">
@@ -92,7 +92,7 @@
                                 <?= form_open_multipart('sukema/inputsuratmasuk');?>
                                 <div class="form-group">
                                     <label for="tglinfo">Tanggal Surat Masuk</label>
-                                    <input type="datetime-local" class="form-control w-50" id="tglsuratmasuk"
+                                    <input type="date" class="form-control datetimepicker w-50" id="tglsuratmasuk"
                                         name="tglsuratmasuk" required>
                                     <div class="invalid-feedback">
                                         Inputkan Tanggal Surat!
@@ -122,12 +122,13 @@
                                         Inputkan Asal Surat!
                                     </div>
                                 </div>
-                                    <label for="imgsurat">Upload Scan/Foto Surat</label>
-                        
-                                    <div class="custom-file" style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
-                                        <input id="imgsurat" name="imgsurat" type="file" class="custom-file-input">
-                                        <label for="imgsurat" class="custom-file-label text-truncate">Pilih file...</label>
-                                    </div>
+                                <label for="imgsurat">Upload Scan/Foto Surat</label>
+
+                                <div class="custom-file"
+                                    style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
+                                    <input id="imgsurat" name="imgsurat" type="file" class="custom-file-input">
+                                    <label for="imgsurat" class="custom-file-label text-truncate">Pilih file...</label>
+                                </div>
                                 <div class="modal-footer w-100">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                     <button type="submit" class="btn btn-primary" id="inputsurat">Simpan</button>

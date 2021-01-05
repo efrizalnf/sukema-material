@@ -384,20 +384,57 @@ class Sukema extends CI_Controller {
 		$this->template->load('templates/template', 'form_suratmasuk', $data);
 	}
 
-	// public function inputsuratmasuk()
-	// {
-	// 	$this->setsession();
+	public function inputsuratmasuk()
+	{
+		$tglsurat = $this->input->post('tglsuratmasuk');
+		$nosuratmasuk = $this->input->post('nosuratmasuk');
+		$perihal = $this->input->post('perihal');
+		$asalsurat = $this->input->post('asalsurat');
+		$uploadsurat = $_FILES['imgsurat']['name'];
+		$config['upload_path'] = 'assets/images/suratmasuk';
+		$config['allowed_types'] = 'jpg|gif|png|jpeg|bmp|pdf';
+		// $config['encrypt_name'] = TRUE;
+		// $config['file_name'] = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
+		$config['maxsize'] = '2000';
 		
-	// }
+		$this->load->library('upload', $config);
+		if (!$this->upload->do_upload('imgsurat')) {
+			$data = [
+				'tgl_suratmasuk' => $tglsurat,
+				'no_suratmasuk' => $nosuratmasuk,
+				'perihal' => $perihal,
+				'asal_surat' => $asalsurat
+			];
+			
+			$this->enhamodel->inputsuratmasuk($data);
+			$this->session->set_flashdata('message', 'Surat masuk berhasil disimpan');
+			redirect('sukema/suratmasuk');
+		}else{
+			$uploadsurat['img_surat'] = $this->upload->data('file_name');
+			$data = [
+				'tgl_suratmasuk' => $tglsurat,
+				'no_suratmasuk' => $nosuratmasuk,
+				'perihal' => $perihal,
+				'asal_surat' => $asalsurat,
+				'img_surat' => $uploadsurat
+			];
+
+			// var_dump($uploadsurat);die();
+			$this->enhamodel->inputsuratmasuk($data);
+			$this->session->set_flashdata('message', 'Surat masuk berhasil disimpan');
+			redirect('sukema/suratmasuk');
+		}
+	}
 
 
 
 	public function deletesuratmasuk($id)
 	{
-		$surat['surat'] = $this->enhamodel->getSuratMasukById($id);
-		if ($surat['surat']['img_surat'] != null) {
-			$path = FCPATH.'assets/images/suratmasuk/'.$surat['surat']['img_surat'];
+		$suratmasuk['suratmasuk'] = $this->enhamodel->getSuratMasukById($id);
+		if ($suratmasuk['suratmasuk']['img_surat'] != null) {
+			$path = FCPATH.'assets/images/suratmasuk/'.$suratmasuk['suratmasuk']['img_surat'];
 			unlink($path);}
+			var_dump($path);die();
 		$this->enhamodel->selectdeleteSurat($id);
 		$this->session->set_flashdata('message', 'Data berhasil di hapus');
 		redirect('sukema/suratmasuk');

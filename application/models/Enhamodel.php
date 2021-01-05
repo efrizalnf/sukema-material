@@ -75,9 +75,9 @@ class Enhamodel extends CI_Model{
     }
 
     /* Inputt */
-    public function inputdataGuru($data)
+    public function inputsuratmasuk($data)
     {
-        $this->db->insert($this->tbguru, $data);
+        $this->db->insert($this->tbsuratmasuk, $data);
     }
     
 
