@@ -315,6 +315,24 @@ The above copyright notice and this permission notice shall be included in all c
         });
     });
 
+     /* Edit Modal */
+
+    $(document).ready(function() {
+        // Untuk sunting
+        $('#edit-modal').on('show.bs.modal', function(event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal = $(this)
+
+            // Isi nilai pada field
+            modal.find('#edit_id').attr("value", div.data('id'));
+            modal.find('#edttglsuratmasuk').attr("value", div.data('tgl'));
+            modal.find('#edtnosuratmasuk').attr("value", div.data('no'));
+            modal.find('#edtperihal').attr("value", div.data('perihal'));
+            modal.find('#edtasalsurat').attr("value", div.data('asal'));
+            modal.find('#edtimgsurat').attr("value", div.data('foto'));
+        });
+    });
+
     $(document).ready(function() {
         $().ready(function() {
             $sidebar = $('.sidebar');
@@ -500,22 +518,7 @@ The above copyright notice and this permission notice shall be included in all c
 
     });
 
-    /* Edit Modal */
-
-    $(document).ready(function() {
-        // Untuk sunting
-        $('#edit-modal').on('show.bs.modal', function(event) {
-            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
-            var modal = $(this)
-
-            // Isi nilai pada field
-            modal.find('#edit_id').attr("value", div.data('id'));
-            modal.find('#editnip').attr("value", div.data('nip'));
-            modal.find('#editnamaguru').attr("value", div.data('nama'));
-            modal.find('#editmapelampu').attr("value", div.data('mapel'));
-            modal.find('#editfotoguru').attr("value", div.data('foto'));
-        });
-    });
+   
     </script>
 </body>
 

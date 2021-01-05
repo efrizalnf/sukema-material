@@ -50,22 +50,26 @@
                                         <td class="align-middle text-center"><?= $item['no_suratmasuk']?></td>
                                         <td class="align-middle"><?= $item['asal_surat']?></td>
                                         <td class="align-middle"><?= $item['perihal']?></td>
-                                        <td class="align-middle"> <img
-                                                class="rounded border border-light mx-auto d-block m-3"
-                                                src="<?= base_url().'assets/images/suratmasuk/'.$item['img_surat'];?>"
+                                        <td>
+                                            <!-- <?= var_dump(base_url('assets/images/suratmasuk/').$item['img_surat'])?> -->
+                                            <img class="rounded border border-light mx-auto d-block m-3"
+                                                src="<?= base_url()?>assets/images/suratmasuk/<?= $item['img_surat']?>"
                                                 width="60" height="60" id="previmg" name="previmg"
-                                                value="<?= $item['img_surat']?>"></td>
+                                                value="<?= $item['img_surat']?>">
+                                        </td>
                                         <td class="td-actions text-center align-middle">
-
                                             <a href="javascript:;" data-id="<?= $item['id_suratmasuk'] ?>"
-                                                data-nip="<?= $item['tgl_suratmasuk'] ?>"
-                                                data-mapel="<?= $item['asal_surat'] ?>"
-                                                data-nama="<?= $item['perihal'] ?>" data-foto="<?=$item['img_surat'] ?>"
-                                                class="btn btn-info" type="button" data-toggle="modal"
-                                                data-target="#edit-modal"><i class="fa fa-edit"></i></a>
+                                                data-tgl="<?= $item['tgl_suratmasuk'] ?>"
+                                                data-no="<?= $item['no_suratmasuk'] ?>"
+                                                data-perihal="<?= $item['perihal'] ?>" 
+                                                data-asal="<?= $item['asal_surat'] ?>"
+                                                data-foto="<?=$item['img_surat'] ?>"
+                                                class="btn btn-info btn-simple" type="button" data-toggle="modal"
+                                                data-target="#edit-modal"><i class="material-icons">edit</i></a>
                                             <button
                                                 href="<?php base_url()?>deletesuratmasuk/<?= $item['id_suratmasuk'];?>"
-                                                class="btn btn-danger m-1 btn-hapus"><i class="fa fa-trash"></i>
+                                                class="btn btn-danger btn-simple btn-hapus"><i
+                                                    class="material-icons">delete</i>
                                             </button>
                                         </td>
                                     </tr>
@@ -76,7 +80,7 @@
                     </div>
                 </div>
 
-                <!-- ModalSurat Masuk -->
+                <!-- input ModalSurat Masuk -->
                 <div class="modal fade" id="inputEnhasModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -132,6 +136,74 @@
                                 <div class="modal-footer w-100">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                     <button type="submit" class="btn btn-primary" id="inputsurat">Simpan</button>
+                                </div>
+                                <!-- </form> -->
+                                <?= form_close(); ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal Surat Masuk -->
+
+                <!-- input ModalSurat Masuk -->
+                <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLabel">Edit Surat Masuk</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <?= form_open_multipart('sukema/editsuratmasuk');?>
+                                <input type="hidden" class="form-control" id="edit_id" name="edit_id"
+                                    value="<?= $item['id_suratmasuk']?>">
+                                <div class="form-group">
+                                    <label for="tglinfo">Tanggal Surat Masuk</label>
+                                    <input type="date" class="form-control datetimepicker w-50" id="edttglsuratmasuk"
+                                       value="<?= $item['tgl_suratmasuk']?>" name="edttglsuratmasuk" required>
+                                    <div class="invalid-feedback">
+                                        Inputkan Tanggal Surat!
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edtnosuratmasuk">Nomor Surat Masuk</label>
+                                    <input type="text" class="form-control" id="edtnosuratmasuk" name="edtnosuratmasuk"
+                                       value="<?= $item['no_suratmasuk']?>" placeholder="Inputkan Nomor Surat Masuk" required>
+                                    <div class="invalid-feedback">
+                                        Inputkan Nomor Surat Masuk!
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edtperihal">Perihal</label>
+                                    <input type="text" class="form-control" id="edtperihal" name="edtperihal"
+                                       value="<?= $item['perihal']?>" placeholder="Inputkan Perihal Surat" required>
+                                    <div class="invalid-feedback">
+                                        Inputkan Perihal Surat!
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edtasalsurat">Asal Surat</label>
+                                    <input type="text" class="form-control" id="edtasalsurat" name="edtasalsurat"
+                                       value="<?= $item['asal_surat']?>" placeholder="Inputkan Asal Surat" required>
+                                    <div class="invalid-feedback">
+                                        Inputkan Asal Surat!
+                                    </div>
+                                </div>
+                                <label for="edtimgsurat">Upload Scan/Foto Surat</label>
+
+                                <div class="custom-file"
+                                    style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
+                                    <input id="edtimgsurat" name="edtimgsurat" value="<?= $item['img_surat']?>" type="file" class="custom-file-input">
+                                    <label for="imgsurat" class="custom-file-label text-truncate">Pilih file...</label>
+                                </div>
+                                <div class="modal-footer w-100">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary" id="editsurat">Edit</button>
                                 </div>
                                 <!-- </form> -->
                                 <?= form_close(); ?>

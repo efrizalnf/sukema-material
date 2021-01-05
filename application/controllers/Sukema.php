@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+define( 'ROOTPATH', dirname(dirname(__FILE__)) . '/' );
 
 class Sukema extends CI_Controller {
 	
@@ -381,6 +382,7 @@ class Sukema extends CI_Controller {
 	public function suratmasuk()
 	{	
 		$data['suratmasuk'] = $this->enhamodel->getSuratMasuk();
+		// $satu['surat'] = $this->enhamodel->getSuratMasukById();
 		$this->template->load('templates/template', 'form_suratmasuk', $data);
 	}
 
@@ -418,8 +420,6 @@ class Sukema extends CI_Controller {
 				'asal_surat' => $asalsurat,
 				'img_surat' => $uploadsurat
 			];
-
-			// var_dump($uploadsurat);die();
 			$this->enhamodel->inputsuratmasuk($data);
 			$this->session->set_flashdata('message', 'Surat masuk berhasil disimpan');
 			redirect('sukema/suratmasuk');
@@ -431,15 +431,17 @@ class Sukema extends CI_Controller {
 	public function deletesuratmasuk($id)
 	{
 		$suratmasuk['suratmasuk'] = $this->enhamodel->getSuratMasukById($id);
+		$path = FCPATH . 'assets/images/suratmasuk/'.$suratmasuk['suratmasuk']['img_surat'];
 		if ($suratmasuk['suratmasuk']['img_surat'] != null) {
-			$path = FCPATH.'assets/images/suratmasuk/'.$suratmasuk['suratmasuk']['img_surat'];
-			unlink($path);}
-			var_dump($path);die();
-		$this->enhamodel->selectdeleteSurat($id);
-		$this->session->set_flashdata('message', 'Data berhasil di hapus');
-		redirect('sukema/suratmasuk');
+			if(is_file($path)){
+			unlink($path);
+			}else{
+			// $this->session->set_flashdata('error', 'Data file surat gagal di hapus');
+			// redirect('sukema/suratmasuk');
+		}
+			$this->enhamodel->selectdeleteSurat($id);
+			$this->session->set_flashdata('message', 'Data berhasil di hapus');
+			redirect('sukema/suratmasuk');
+		}
 	}
-
-	
-
 }
