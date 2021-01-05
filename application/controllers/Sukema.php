@@ -382,8 +382,8 @@ class Sukema extends CI_Controller {
 	public function suratmasuk()
 	{	
 		$data['suratmasuk'] = $this->enhamodel->getSuratMasuk();
-		// $satu['surat'] = $this->enhamodel->getSuratMasukById();
 		$this->template->load('templates/template', 'form_suratmasuk', $data);
+	
 	}
 
 	public function inputsuratmasuk()
@@ -393,8 +393,8 @@ class Sukema extends CI_Controller {
 		$perihal = $this->input->post('perihal');
 		$asalsurat = $this->input->post('asalsurat');
 		$uploadsurat = $_FILES['imgsurat']['name'];
-		$config['upload_path'] = 'assets/images/suratmasuk';
-		$config['allowed_types'] = 'jpg|gif|png|jpeg|bmp|pdf';
+		$config['upload_path'] = 'assets/images/surat';
+		$config['allowed_types'] = 'jpg|jpeg|png|gif|bmp';
 		// $config['encrypt_name'] = TRUE;
 		// $config['file_name'] = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
 		$config['maxsize'] = '2000';
@@ -426,18 +426,64 @@ class Sukema extends CI_Controller {
 		}
 	}
 
+	public function editsuratmasuk()
+	{
+		$id = $this->input->post('edit_id');
+		$tglsurat = $this->input->post('edttglsuratmasuk');
+		$nosuratmasuk = $this->input->post('edtnosuratmasuk');
+		$perihal = $this->input->post('edtperihal');
+		$asalsurat = $this->input->post('edtasalsurat');
+		$uploadsurat = $_FILES['edtimgsurat']['name'];
+		$config['upload_path'] = 'assets/images/surat';
+		$config['allowed_types'] = 'jpg|jpeg|png|gif|bmp';
+		// $config['encrypt_name'] = TRUE;
+		// $config['file_name'] = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
+		$config['maxsize'] = '2000';
+		
+		$this->load->library('upload', $config);
+		if (!$this->upload->do_upload('edtimgsurat')) {
+			$data = [
+				'tgl_suratmasuk' => $tglsurat,
+				'no_suratmasuk' => $nosuratmasuk,
+				'perihal' => $perihal,
+				'asal_surat' => $asalsurat
+			];
+			
+			$this->enhamodel->updatesuratmasuk($data, $id);
+			$this->session->set_flashdata('message', 'Surat masuk berhasil ubah');
+			redirect('sukema/suratmasuk');
+		}else{
+			$surat['item'] = $this->enhamodel->getSuratMasukById($id);
+			if ($surat['item']['img_surat'] != null) {
+				$path = FCPATH.'assets/images/surat/'.$surat['item']['img_surat'];
+				unlink($path);
+			}
+			
+			$uploadsurat['img_surat'] = $this->upload->data('file_name');
 
+			$data = [
+				'tgl_suratmasuk' => $tglsurat,
+				'no_suratmasuk' => $nosuratmasuk,
+				'perihal' => $perihal,
+				'asal_surat' => $asalsurat,
+				'img_surat' => $uploadsurat
+			];
+			$this->enhamodel->updatesuratmasuk($data, $id);
+			$this->session->set_flashdata('message', 'Surat masuk berhasil ubah');
+			redirect('sukema/suratmasuk');
+		}
+	}
 
 	public function deletesuratmasuk($id)
 	{
-		$suratmasuk['suratmasuk'] = $this->enhamodel->getSuratMasukById($id);
-		$path = FCPATH . 'assets/images/suratmasuk/'.$suratmasuk['suratmasuk']['img_surat'];
-		if ($suratmasuk['suratmasuk']['img_surat'] != null) {
+		$surat['item'] = $this->enhamodel->getSuratMasukById($id);
+		$path = FCPATH.'assets/images/surat/'.$surat['item']['img_surat'];
+		if ($surat['item']['img_surat'] != null) {
 			if(is_file($path)){
 			unlink($path);
 			}else{
-			// $this->session->set_flashdata('error', 'Data file surat gagal di hapus');
-			// redirect('sukema/suratmasuk');
+			$this->session->set_flashdata('error', 'Data file surat gagal di hapus');
+			redirect('sukema/suratmasuk');
 		}
 			$this->enhamodel->selectdeleteSurat($id);
 			$this->session->set_flashdata('message', 'Data berhasil di hapus');

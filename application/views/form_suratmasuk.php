@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="col-12">
-                        <button type="button" class="btn btn-primary m-3 " data-toggle="modal"
+                        <button type="button" class="btn btn-primary mt-3 float-left" data-toggle="modal"
                             data-target="#inputEnhasModal"><i class="fa fa-plus"></i>&nbsp; Input
                             Surat Masuk</button>
                     </div>
@@ -51,9 +51,9 @@
                                         <td class="align-middle"><?= $item['asal_surat']?></td>
                                         <td class="align-middle"><?= $item['perihal']?></td>
                                         <td>
-                                            <!-- <?= var_dump(base_url('assets/images/suratmasuk/').$item['img_surat'])?> -->
+                                            <!-- <?= var_dump(base_url('assets/images/surat/').$item['img_surat'])?> -->
                                             <img class="rounded border border-light mx-auto d-block m-3"
-                                                src="<?= base_url()?>assets/images/suratmasuk/<?= $item['img_surat']?>"
+                                                src="<?= base_url()?>assets/images/surat/<?= $item['img_surat']?>"
                                                 width="60" height="60" id="previmg" name="previmg"
                                                 value="<?= $item['img_surat']?>">
                                         </td>
@@ -165,7 +165,7 @@
                                 <div class="form-group">
                                     <label for="tglinfo">Tanggal Surat Masuk</label>
                                     <input type="date" class="form-control datetimepicker w-50" id="edttglsuratmasuk"
-                                       value="<?= $item['tgl_suratmasuk']?>" name="edttglsuratmasuk" required>
+                                        name="edttglsuratmasuk" required>
                                     <div class="invalid-feedback">
                                         Inputkan Tanggal Surat!
                                     </div>
@@ -173,7 +173,7 @@
                                 <div class="form-group">
                                     <label for="edtnosuratmasuk">Nomor Surat Masuk</label>
                                     <input type="text" class="form-control" id="edtnosuratmasuk" name="edtnosuratmasuk"
-                                       value="<?= $item['no_suratmasuk']?>" placeholder="Inputkan Nomor Surat Masuk" required>
+                                        placeholder="Inputkan Nomor Surat Masuk" required>
                                     <div class="invalid-feedback">
                                         Inputkan Nomor Surat Masuk!
                                     </div>
@@ -181,7 +181,7 @@
                                 <div class="form-group">
                                     <label for="edtperihal">Perihal</label>
                                     <input type="text" class="form-control" id="edtperihal" name="edtperihal"
-                                       value="<?= $item['perihal']?>" placeholder="Inputkan Perihal Surat" required>
+                                        placeholder="Inputkan Perihal Surat" required>
                                     <div class="invalid-feedback">
                                         Inputkan Perihal Surat!
                                     </div>
@@ -189,7 +189,7 @@
                                 <div class="form-group">
                                     <label for="edtasalsurat">Asal Surat</label>
                                     <input type="text" class="form-control" id="edtasalsurat" name="edtasalsurat"
-                                       value="<?= $item['asal_surat']?>" placeholder="Inputkan Asal Surat" required>
+                                        placeholder="Inputkan Asal Surat" required>
                                     <div class="invalid-feedback">
                                         Inputkan Asal Surat!
                                     </div>
@@ -198,7 +198,7 @@
 
                                 <div class="custom-file"
                                     style="border:#d2d6de 1px solid; border-radius:10px; padding:15px;">
-                                    <input id="edtimgsurat" name="edtimgsurat" value="<?= $item['img_surat']?>" type="file" class="custom-file-input">
+                                    <input id="edtimgsurat" name="edtimgsurat" type="file" class="custom-file-input">
                                     <label for="imgsurat" class="custom-file-label text-truncate">Pilih file...</label>
                                 </div>
                                 <div class="modal-footer w-100">

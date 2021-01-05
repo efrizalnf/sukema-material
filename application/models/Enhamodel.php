@@ -130,6 +130,12 @@ class Enhamodel extends CI_Model{
         return true;
     }
 
+    public function updatesuratmasuk($data, $id)
+    {
+        $this->db->where('id_suratmasuk', $id);
+        $this->db->update($this->tbsuratmasuk, $data,  ['id_suratmasuk' => $id]);
+        return true;
+    }
 
  /*   delete */
     public function selectdeleteSurat($id)
