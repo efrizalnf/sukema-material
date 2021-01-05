@@ -382,7 +382,6 @@ class Sukema extends CI_Controller {
 	{	
 		$data['suratmasuk'] = $this->enhamodel->getSuratMasuk();
 		$this->template->load('templates/template', 'form_suratmasuk', $data);
-		$this->load->view('form_suratmasuk');
 	}
 
 	// public function inputsuratmasuk()

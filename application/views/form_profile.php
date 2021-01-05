@@ -53,8 +53,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="clearfix"></div>
-
-                                                    <div class="form-group file-caption-main"
+                                                    <div
                                                         style="border:#d2d6de 1px solid; border-radius:10px; padding:10px;">
                                                         <input type="file" name="uploadlogo" id="uploadlogo">
                                                     </div>
@@ -62,23 +61,23 @@
                                             </div>
                                         </div>
                                         <text style="font-size:8pt;">
-                                            * Format logo .JPG/.PNG
+                                            * Format logo .JPG/.PNG/.BMP
                                         </text>
                                     </div>
                                 </div>
                                 <!-- batas col md4 -->
                                 <div class="col-md-8"
                                     style="border: 1px #dedede solid; border-radius: 5px; padding: 25px 20px;">
-                                    <div class="panel panel-success padding-md">
+                                    <div class="panel panel-default padding-md">
                                         <ul class="nav nav-tabs nav-fill" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active show text-black-50" data-toggle="tab"
+                                            <li>
+                                                <a class="nav-link active" data-toggle="tab"
                                                     href="#school_identity">Identitas</a>
                                             </li>
-                                            <li class="nav-item">
+                                            <li>
                                                 <a class="nav-link" data-toggle="tab" href="#school_location">Lokasi</a>
                                             </li>
-                                            <li class="nav-item">
+                                            <li>
                                                 <a class="nav-link" data-toggle="tab" href="#school_headmaster">Kepala
                                                     Madrasah</a>
                                             </li>
@@ -263,7 +262,7 @@
                                             <div class="tab-pane" id="school_headmaster">
                                                 <div class="padding-x-md">
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-6 text-center">
                                                             <label for="uploadlogo">Foto Kepala Madrasah</label>
                                                             <div
                                                                 style="border:#d2d6de 1px solid; border-radius:10px; padding:10px;">
