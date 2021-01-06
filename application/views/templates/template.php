@@ -77,8 +77,8 @@ The above copyright notice and this permission notice shall be included in all c
                             <p>Surat Masuk</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item <?= ($page == 'suratkeluar') ? 'active' : '' ?>">
+                        <a class="nav-link" href="<?= base_url('sukema/suratkeluar') ?>">
                             <i class="fas la-file-export"></i>
                             <p>Surat Keluar</p>
                         </a>
