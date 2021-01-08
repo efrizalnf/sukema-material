@@ -318,12 +318,10 @@ The above copyright notice and this permission notice shall be included in all c
      /* Edit Modal */
 
     $(document).ready(function() {
-        // Untuk sunting
         $('#edit-modal').on('show.bs.modal', function(event) {
-            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var div = $(event.relatedTarget) 
             var modal = $(this)
 
-            // Isi nilai pada field
             modal.find('#edit_id').attr("value", div.data('id'));
             modal.find('#edttglsuratmasuk').attr("value", div.data('tgl'));
             modal.find('#edtnosuratmasuk').attr("value", div.data('no'));
