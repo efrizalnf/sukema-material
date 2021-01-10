@@ -21,9 +21,6 @@
                     <div class="card-body">
 
                         <div class="card">
-                            <!-- <div class="card-header-success text-center">
-                                    <h3 class="card-title">Korp Surat</h3>
-                            </div> -->
                             <div class="card-body">
                                 <!-- Korp surat -->
                                 <div class="korp-surat">

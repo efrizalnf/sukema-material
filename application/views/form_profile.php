@@ -69,15 +69,15 @@
                                 <div class="col-md-8"
                                     style="border: 1px #d2d6de solid; border-radius: 5px; padding: 25px 20px;">
                                     <div class="panel panel-default padding-md">
-                                        <ul class="nav nav-tabs nav-fill" role="tablist">
-                                            <li>
+                                        <ul class="nav m-auto nav-tabs nav-fill" role="tablist">
+                                            <li class="m-auto">
                                                 <a class="nav-link active" data-toggle="tab"
                                                     href="#school_identity">Identitas</a>
                                             </li>
-                                            <li>
+                                            <li class="m-auto">
                                                 <a class="nav-link" data-toggle="tab" href="#school_location">Lokasi</a>
                                             </li>
-                                            <li>
+                                            <li class="m-auto">
                                                 <a class="nav-link" data-toggle="tab" href="#school_headmaster">Kepala
                                                     Madrasah</a>
                                             </li>
