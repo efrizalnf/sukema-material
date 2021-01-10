@@ -11,6 +11,11 @@
         <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('message')?>"></div>
         <div class="flash-data-err" data-flashdata="<?php echo $this->session->flashdata('error')?>"></div>
         <div class="row">
+         <div class="col-12">
+                <a type="button" class="btn btn-sm btn-primary m-3 float-right"
+                    href="<?= site_url('sukema/skguru')?>"><i
+                        class="fa fa-chevron-left"></i>&nbsp; Kembali</a>
+            </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header-primary">
