@@ -63,7 +63,7 @@ class Sukema extends CI_Controller {
 		$phone = $this->input->post('phone');
 		$email = $this->input->post('email');
 		$website = $this->input->post('website');
-		$visi = $this->input->post('visi');
+		$namayayasan = $this->input->post('namayayasan');
 		$nama_kepsek = $this->input->post('namakepsek');
 		$nipkepsek = $this->input->post('nipkepsek');
 		$uploadfotokamad =$_FILES['uploadfotokamad']['name'];
@@ -89,6 +89,7 @@ class Sukema extends CI_Controller {
 				'longitude'	=> $longitude,
 				'nilai_akreditasi'	=> $akreditasi,
 				'status_sekolah' => $statussekolah,
+				'nama_yayasan' => $namayayasan,
 				'email' => $email,
 				'phone' => $phone,
 				'website' => $website,
@@ -101,8 +102,8 @@ class Sukema extends CI_Controller {
 			redirect('sukema/profil');
 		}else{
 			$loadfoto['profile'] = $this->enhamodel->getProfile();
-			if ($loadfoto['profile']->img_kepsek != null) {
-				$path = FCPATH.'assets/images/'.$loadfoto['profile']->img_kepsek;
+			$path = FCPATH.'assets/images/'.$loadfoto['profile']->img_kepsek;
+			if (file_exists($path)) {
 				unlink($path);
 			}
         	$uploadfotokamad = $this->upload->data('file_name');
@@ -121,6 +122,7 @@ class Sukema extends CI_Controller {
 				'longitude'	=> $longitude,
 				'nilai_akreditasi'	=> $akreditasi,
 				'status_sekolah' => $statussekolah,
+				'nama_yayasan' => $namayayasan,
 				'email' => $email,
 				'phone' => $phone,
 				'website' => $website,
@@ -136,8 +138,8 @@ class Sukema extends CI_Controller {
 			
 		}else{
 			$loadfoto['profile'] = $this->enhamodel->getProfile();
-			if ($loadfoto['profile']->img_logo != null) {
-				$path = FCPATH.'assets/images/'.$loadfoto['profile']->img_logo;
+			$path = FCPATH.'assets/images/'.$loadfoto['profile']->img_logo;
+			if (file_exists($path)) {
 				unlink($path);
 			}
         	$uploadlogo = $this->upload->data('file_name');
@@ -156,6 +158,7 @@ class Sukema extends CI_Controller {
 				'longitude'	=> $longitude,
 				'nilai_akreditasi'	=> $akreditasi,
 				'status_sekolah' => $statussekolah,
+				'nama_yayasan' => $namayayasan,
 				'email' => $email,
 				'phone' => $phone,
 				'website' => $website,
@@ -204,8 +207,8 @@ class Sukema extends CI_Controller {
 			
 		}else{
 			$loadfoto['ttd'] = $this->enhamodel->getTtdKamad();
-			if ($loadfoto['ttd']->ttd_kamad != null) {
-				$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_kamad;
+			$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_kamad;
+			if (file_exists($path)) {
 				unlink($path);
 			}
         	$uploadttdkamad = $this->upload->data('file_name');
@@ -243,8 +246,8 @@ class Sukema extends CI_Controller {
 			
 		}else{
 			$loadfoto['ttd'] = $this->enhamodel->getTtdTatausaha();
-			if ($loadfoto['ttd']->ttd_tatausaha != null) {
-				$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_tatausaha;
+			$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_tatausaha;
+			if (file_exists($path)) {
 				unlink($path);
 			}
         	$uploadttdtu = $this->upload->data('file_name');
@@ -283,8 +286,8 @@ class Sukema extends CI_Controller {
 			
 		}else{
 			$loadfoto['ttd'] = $this->enhamodel->getTtdBendahara();
-			if ($loadfoto['ttd']->ttd_bendahara != null) {
-				$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_bendahara;
+			$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_bendahara;
+			if (file_exists($path)) {
 				unlink($path);
 			}
         	$uploadttdbendahara = $this->upload->data('file_name');
@@ -322,8 +325,8 @@ class Sukema extends CI_Controller {
 			
 		}else{
 			$loadfoto['ttd'] = $this->enhamodel->getTtdKomite();
-			if ($loadfoto['ttd']->ttd_komite != null) {
-				$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_komite;
+			$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_komite;
+			if (file_exists($path)) {
 				unlink($path);
 			}
         	$uploadttdkomite = $this->upload->data('file_name');
@@ -362,8 +365,8 @@ class Sukema extends CI_Controller {
 			
 		}else{
 			$loadfoto['ttd'] = $this->enhamodel->getTtdYayasan();
-			if ($loadfoto['ttd']->ttd_yayasan != null) {
-				$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_yayasan;
+			$path = FCPATH.'assets/images/signature/'.$loadfoto['ttd']->ttd_yayasan;
+			if (file_exists($path)) {
 				unlink($path);
 			}
         	$uploadttdyayasan = $this->upload->data('file_name');
@@ -394,8 +397,8 @@ class Sukema extends CI_Controller {
 		$uploadsurat = $_FILES['imgsurat']['name'];
 		$config['upload_path'] = 'assets/images/surat';
 		$config['allowed_types'] = 'jpg|jpeg|png|gif|bmp';
-		// $config['encrypt_name'] = TRUE;
-		// $config['file_name'] = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
+		$format = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
+		$config['file_name'] = $format;
 		$config['maxsize'] = '2000';
 		
 		$this->load->library('upload', $config);
@@ -436,7 +439,7 @@ class Sukema extends CI_Controller {
 		$config['upload_path'] = 'assets/images/surat';
 		$config['allowed_types'] = 'jpg|jpeg|png|gif|bmp';
 		// $config['encrypt_name'] = TRUE;
-		// $config['file_name'] = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
+		$config['file_name'] = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
 		$config['maxsize'] = '2000';
 		
 		$this->load->library('upload', $config);
@@ -453,8 +456,8 @@ class Sukema extends CI_Controller {
 			redirect('sukema/suratmasuk');
 		}else{
 			$surat['item'] = $this->enhamodel->getSuratMasukById($id);
-			if ($surat['item']['img_surat'] != null) {
-				$path = FCPATH.'assets/images/surat/'.$surat['item']['img_surat'];
+			$path = FCPATH.'assets/images/surat/'.$surat['item']['img_surat'];
+			if (file_exists($path)) {
 				unlink($path);
 			}
 			
@@ -477,18 +480,17 @@ class Sukema extends CI_Controller {
 	{
 		$surat['item'] = $this->enhamodel->getSuratMasukById($id);
 		$path = FCPATH.'assets/images/surat/'.$surat['item']['img_surat'];
-		if ($surat['item']['img_surat'] != null) {
-			if(is_file($path)){
+		if (file_exists($path)) {
 			unlink($path);
+			$this->enhamodel->selectdeleteSurat($id);
+			$this->session->set_flashdata('message', 'Data berhasil di hapus');
+			redirect('sukema/suratmasuk');
 			}else{
 			$this->session->set_flashdata('error', 'Data file surat gagal di hapus');
 			redirect('sukema/suratmasuk');
 		}
-			$this->enhamodel->selectdeleteSurat($id);
-			$this->session->set_flashdata('message', 'Data berhasil di hapus');
-			redirect('sukema/suratmasuk');
-		}
 	}
+	
 
 	public function suratkeluar()
 	{

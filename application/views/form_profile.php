@@ -69,16 +69,16 @@
                                 <div class="col-md-8"
                                     style="border: 1px #d2d6de solid; border-radius: 5px; padding: 25px 20px;">
                                     <div class="panel panel-default padding-md">
-                                        <ul class="nav m-auto nav-tabs nav-fill" role="tablist">
-                                            <li class="m-auto">
-                                                <a class="nav-link active" data-toggle="tab"
+                                        <ul class="nav w-100 nav-tabs nav-fill font-weight-bold" role="tablist">
+                                            <li class="m-auto" style="width:33%">
+                                                <a class="nav-link text-center active" data-toggle="tab"
                                                     href="#school_identity">Identitas</a>
                                             </li>
-                                            <li class="m-auto">
-                                                <a class="nav-link" data-toggle="tab" href="#school_location">Lokasi</a>
+                                            <li class="m-auto" style="width:33%">
+                                                <a class="nav-link text-center" data-toggle="tab" href="#school_location">Lokasi</a>
                                             </li>
-                                            <li class="m-auto">
-                                                <a class="nav-link" data-toggle="tab" href="#school_headmaster">Kepala
+                                            <li class="m-auto" style="width:33%">
+                                                <a class="nav-link text-center" data-toggle="tab" href="#school_headmaster">Kepala
                                                     Madrasah</a>
                                             </li>
                                         </ul>
@@ -159,6 +159,15 @@
                                                                     <option value="swasta">Swasta</option>
                                                                     <?php endif;?>
                                                                 </select>
+                                                            </div>
+                                                             <div class="form-group">
+                                                                <label>Nama Yayasan<sup>
+                                                                        <font color="red" size="4">*</font>
+                                                                    </sup></label>
+                                                                <input type="text" class="form-control"
+                                                                    name="namayayasan" placeholder="Inputkan nama yayasan (apabila dibawah naungan yayasan)"
+                                                                    value="<?php echo $profile->nama_yayasan;?>"
+                                                                    required>
                                                             </div>
                                                         </div>
                                                     </div>
