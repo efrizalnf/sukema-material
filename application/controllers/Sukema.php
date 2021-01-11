@@ -397,8 +397,8 @@ class Sukema extends CI_Controller {
 		$uploadsurat = $_FILES['imgsurat']['name'];
 		$config['upload_path'] = 'assets/images/surat';
 		$config['allowed_types'] = 'jpg|jpeg|png|gif|bmp';
-		$format = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
-		$config['file_name'] = $format;
+		// $format = 'sukema_suratmasuk_'.date("Ymd_h:i:s A");
+		// $config['file_name'] = $format;
 		$config['maxsize'] = '2000';
 		
 		$this->load->library('upload', $config);
