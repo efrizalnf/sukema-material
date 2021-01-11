@@ -499,15 +499,19 @@ class Sukema extends CI_Controller {
 
 	public function skguru()
 	{
-		$this->template->load('templates/template', 'form_suratkeputusanguru');
+		$this->template->load('templates/template', 'form_templateskguru');
 		
 	}
 
-	public function templatesurat()
+	public function tambahskguru()
 	{
-		$this->template->load('templates/template', 'form_buattemplateskguru');
+		$this->template->load('templates/template', 'form_tambahskguru');
 	}
-
+	
+	public function cetakskguru()
+	{
+		$this->template->load('templates/template', 'form_cetakskguru');
+	}
 
 
 

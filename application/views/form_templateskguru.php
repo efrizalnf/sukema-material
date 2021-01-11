@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-12">
                         <a type="button" class="btn-sm btn-info m-3 text-center"
-                            href="<?= base_url('sukema/templatesurat')?>"><i class="fa fa-plus"></i>&nbsp; Buat SK
+                            href="<?= base_url('sukema/tambahskguru')?>"><i class="fa fa-plus"></i>&nbsp; Buat SK
                             Guru</a>
                     </div>
                     <div class="card-body">

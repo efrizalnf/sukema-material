@@ -5,7 +5,7 @@
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="<?= base_url('sukema/dashboard')?>">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><span>Buat Template Surat</span></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Cetak SK Guru</span></li>
             </ol>
         </nav>
         <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('message')?>"></div>
@@ -19,7 +19,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header-primary">
-                        <h3 class="card-title">Template Surat</h3>
+                        <h3 class="card-title">Cetak SK Guru</h3>
                         <!-- <p class="card-category">(Silahkan pilih template untuk membuat surat keluar)</p> -->
                     </div>
 
