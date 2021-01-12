@@ -90,20 +90,20 @@
                         <?= form_open_multipart('sukema/editttdtatausaha'); ?>
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="hidden" name="idtu" value="<?= $tatausaha->id_tatausaha?>">
+                                <input type="hidden" name="idtu" value="<?= $tatausaha->id_kamad?>">
                                 <div class="form-group">
                                     <label>Nama Tata Usaha<sup>
                                             <font color="red" size="4">*</font>
                                         </sup></label>
                                     <input type="text" class="form-control" name="namatatausaha"
-                                        placeholder="Nama tatausaha" value="<?= $tatausaha->nama_tatausaha ?>" required>
+                                        placeholder="Nama tatausaha" value="<?= $tatausaha->nama_kamad ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>NIP Tata usaha<sup>
                                             <font color="red" size="4">*</font>
                                         </sup></label>
                                     <input type="text" class="form-control" name="niptatausaha"
-                                        placeholder="NIP Tatausaha" value="<?= $tatausaha->nip_tatausaha  ?>" required>
+                                        placeholder="NIP Tatausaha" value="<?= $tatausaha->nip_kamad  ?>" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -120,13 +120,13 @@
                                                             'height'=> '220'
                                                             );
                                             $image_isi = array(
-                                                            'src'   => "/assets/images/signature/$tatausaha->ttd_tatausaha",
+                                                            'src'   => "/assets/images/signature/$tatausaha->ttd_kamad",
                                                             'alt'   => 'ttd-tu',
                                                             'width' => '60%',
                                                             'height'=> '220'
                                                             );
                                         ?>
-                                            <?= ($tatausaha->ttd_tatausaha === '') ? img($image_kosong) : img($image_isi); ?>
+                                            <?= ($tatausaha->ttd_kamad === '') ? img($image_kosong) : img($image_isi); ?>
                                         </div>
                                         <div>
                                             <span class="btn btn-raised btn-round btn-default btn-file mt-3">

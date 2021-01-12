@@ -10,20 +10,27 @@
     <meta name="author" content="">
 
     <title>SUKEMA</title>
-    <link rel="icon" href="<?php echo base_url()?>assets/landing/img/favicon.ico">
+    <link rel="icon" href="<?php echo base_url() ?>assets/landing/img/favicon.ico">
     <!-- Custom fonts for this template-->
-    <link href="<?php echo base_url();?>assets/login/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-        type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/login/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?php echo base_url();?>assets/login/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/login/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<style>
+    body {
+        background-image: url(assets/images/sukema_back.webp);
+        background-size: cover;
+    }
 
-<body class="bg-gradient-dark">
+    .card {
+        background-image: linear-gradient(to bottom right, #44057F, #48337A);
+    }
+</style>
+
+<body>
 
     <div class="container">
 
@@ -37,30 +44,28 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 col-sm-12 col-md-12 m-auto text-center">
-                                <img src="<?php echo base_url();?>assets/images/<?= $profile->img_logo?>"
-                                    style="width: 230px; height: 230px; margin-top:25px;">
-                                <!-- <p class="title font-weight-bold d-none d-lg-block h3 mt-4">
-                                    <?= $profile->nama_madrasah?></p> -->
+                                <img src="<?php echo base_url(); ?>assets/images/<?= $profile->img_logo ?>" style="width: 230px; height: 230px; margin-top:25px;">
+                                <p class="title font-weight-bold text-white d-none d-lg-block h3 mt-3">
+                                    <?= $profile->nama_madrasah ?></p>
+                                <small class="title font-weight-bold text-white d-none d-lg-block mt-1">
+                                    <?= $profile->alamat_madrasah ?></small>
                             </div>
 
                             <div class="col-lg-6 col-sm-12 col-md-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4"><b>SUKEMA <br> Aplikasi Manajemen Surat</h1>
+                                        <h1 class="h4 text-white mb-4"><b>SUKEMA <br> Aplikasi Manajemen Surat</h1>
                                     </div>
-                                    <?php echo $this->session->flashdata('message');?>
-                                    <form class="user" method="post" action="<?php echo base_url('login/index');?>">
+                                    <?php echo $this->session->flashdata('message'); ?>
+                                    <form class="user" method="post" action="<?php echo base_url('login'); ?>">
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" name="username"
-                                                id="username" placeholder="Username"
-                                                value="<?php echo set_value('username');?>">
-                                            <?php echo form_error('username', '<small class="text-danger pl-3">', '</small>')?>
+                                            <input type="text" class="form-control form-control-user" name="username" id="username" placeholder="Username" value="<?php echo set_value('username'); ?>">
+                                            <?php echo form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                name="password" id="password" placeholder="Password">
-                                            <?php echo form_error('password', '<small class="text-danger pl-3">', '</small>')?>
+                                            <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password">
+                                            <?php echo form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -69,7 +74,7 @@
                                                     Password</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-dark btn-user btn-block">
+                                        <button type="submit" class="btn btn-info btn-user btn-block">
                                             Login
                                         </button>
 
@@ -100,13 +105,13 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url();?>assets/login/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/login/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="<?php echo base_url(); ?>assets/login/vendor/jquery/jquery.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="<?php echo base_url();?>assets/login/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/login/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/login/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url();?>assets/login/js/sb-admin-2.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/login/js/sb-admin-2.min.js"></script>
 
 </body>
 
