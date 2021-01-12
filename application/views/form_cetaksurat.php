@@ -25,12 +25,6 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <?php
-                                if ($skguru['korpsurat'] == 1) {
-                                    # code...
-                                }else{}
-                                
-                                ?>
                                 <!-- Korp surat -->
                                 <div class="korp-surat">
                                     <div class="row justify-content-md-center m-2">

@@ -9,6 +9,7 @@ class Sukema extends CI_Controller {
 	{
 		parent::__construct();
 		$this->setsession();
+		$this->load->helper('autonumber');
 		
 	}
 
@@ -499,18 +500,23 @@ class Sukema extends CI_Controller {
 
 	public function skguru()
 	{
-		$this->template->load('templates/template', 'form_templateskguru');
+		$data['skguru'] = $this->enhamodel->getSkGuru();
+		$this->template->load('templates/template', 'form_templateskguru', $data);
 		
 	}
 
 	public function tambahskguru()
 	{
+		// $data['nosurat'] = getAutoNumber('enhas_sk_guru', 'no_surat', '19', 4) . "-69/A.3-YAPINDA/VII/" . date("Y");
 		$this->template->load('templates/template', 'form_tambahskguru');
 	}
 	
 	public function cetakskguru()
 	{
-		$this->template->load('templates/template', 'form_cetakskguru');
+		$data['korpsurat'] = $this->enhamodel->getProfile();
+		$data['ttdyayasan'] = $this->enhamodel->getTtdYayasan();
+		$data['skguru']= $this->enhamodel->getSkGuru();
+		$this->template->load('templates/template', 'form_cetakskguru', $data);
 	}
 
 
