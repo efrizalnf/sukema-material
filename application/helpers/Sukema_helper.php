@@ -1,20 +1,26 @@
 <?php
-use Dompdf\Dompdf;
 
-function genPdf($content='', $filename='sukema_skguru', $size='A4', $orientation='portrait', $attachment=false)
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
+function genPdf($content='', $filename='sukema_skguru', $size='legal', $orientation='portrait', $attachment=false)
 {
+    $options = new Options();
+    $options->setIsRemoteEnabled(TRUE);
+    $options->setIsHtml5ParserEnabled(true);
+
 // instantiate and use the dompdf class
-$dompdf = new Dompdf();
-$dompdf->loadHtml($content);
+    $dompdf = new Dompdf($options);
+    $dompdf->loadHtml(utf8_decode($content));
 
 // (Optional) Setup the paper size and orientation
-$dompdf->setPaper($size, $orientation);
+    $dompdf->setPaper($size, $orientation);
 
 // Render the HTML as PDF
-$dompdf->render();
+    $dompdf->render();
 
 // Output the generated PDF to Browser
-$dompdf->stream($filename, ['Attachment' => $attachment]);
+    $dompdf->stream($filename, ['Attachment' => $attachment]);
 // $dompdf->stream($filename, array("Attachment" => false));
 }
 
