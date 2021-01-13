@@ -20,19 +20,15 @@
                         <h3 class="card-title">Cetak SK Guru</h3>
                         <!-- <p class="card-category">(Silahkan pilih template untuk membuat surat keluar)</p> -->
                     </div>
-
+                    <button onclick="myFunction()">Click Me</button>
+                    <a href="<?= base_url('sukema/cetakpdf')?>" target="_BLANK">Print</a>
                     <div class="card-body">
 
                         <div class="card">
                             <div class="card-body">
-                                <?php
-                                if ($skguru['korpsurat'] == 1) {
-                                    # code...
-                                }else{}
-                                
-                                ?>
+
                                 <!-- Korp surat -->
-                                <div class="korp-surat">
+                                <div id="korp-surat">
                                     <div class="row justify-content-md-center m-2">
                                         <div class="col-lg-2 m-3">
                                             <img src="<?= base_url() ?>assets/images/<?= $korpsurat->img_logo ?>" width="150" height="150" alt="logo">

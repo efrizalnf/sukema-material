@@ -14,8 +14,8 @@ The above copyright notice and this permission notice shall be included in all c
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url();?>/assets/images/apple-icon.png">
-    <link rel="icon" type="image/png" href="<?= base_url();?>/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url(); ?>/assets/images/apple-icon.png">
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         SUKEMA (E-Letter Management System)
@@ -24,21 +24,21 @@ The above copyright notice and this permission notice shall be included in all c
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="<?= base_url('assets/vendors/fontawesome/css/all.css')?>">
+    <link rel="stylesheet" href="<?= base_url('assets/vendors/fontawesome/css/all.css') ?>">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="<?= base_url('assets/vendors/bootstrap/css/bootstrap.css')?>">
-    <link rel="stylesheet" href="<?= base_url('assets/vendors/bootstrap/datatables/dataTables.bootstrap4.min.css')?>">
+    <link rel="stylesheet" href="<?= base_url('assets/vendors/bootstrap/css/bootstrap.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/vendors/bootstrap/datatables/dataTables.bootstrap4.min.css') ?>">
     <!-- CSS Files -->
-    <link href="<?= base_url('assets/css/material-dashboard.css?v=2.1.2')?>" rel="stylesheet" />
+    <link href="<?= base_url('assets/css/material-dashboard.css?v=2.1.2') ?>" rel="stylesheet" />
     <!-- Icon LineAwesome CSS-->
-    <link rel="stylesheet" href="<?= base_url('assets/vendors/lineawesome/css/line-awesome.min.css')?>">
-    <link rel="stylesheet" href="<?= base_url('assets/vendors/summernote/summernote.min.css')?>">
+    <link rel="stylesheet" href="<?= base_url('assets/vendors/lineawesome/css/line-awesome.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/vendors/summernote/summernote.min.css') ?>">
 </head>
 
 <body class="">
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="white"
-            data-image="<?= base_url('/assets/img/sidebar-1.jpg')?>">
+            data-image="<?= base_url('/assets/img/sidebar-1.jpg') ?>">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -139,7 +139,7 @@ The above copyright notice and this permission notice shall be included in all c
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('sukema/dashboard')?>">
+                                <a class="nav-link" href="<?= base_url('sukema/dashboard') ?>">
                                     <i class="material-icons">dashboard</i>
                                     <p class="d-lg-none d-md-block">
                                         Dashboard
@@ -173,9 +173,9 @@ The above copyright notice and this permission notice shall be included in all c
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                    <a class="dropdown-item" href="<?= base_url('sukema/profil')?>">Profile</a>
+                                    <a class="dropdown-item" href="<?= base_url('sukema/profil') ?>">Profile</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<?= base_url('login/logout')?>">Log out</a>
+                                    <a class="dropdown-item" href="<?= base_url('login/logout') ?>">Log out</a>
                                 </div>
                             </li>
                         </ul>
@@ -218,22 +218,22 @@ The above copyright notice and this permission notice shall be included in all c
                 <li class="header-title">Images</li>
                 <li class="active">
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="<?=base_url('/assets/images/sidebar-1.jpg')?>" alt="">
+                        <img src="<?= base_url('/assets/images/sidebar-1.jpg') ?>" alt="">
                     </a>
                 </li>
                 <li>
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="<?= base_url('/assets/images/sidebar-2.jpg')?>" alt="">
+                        <img src="<?= base_url('/assets/images/sidebar-2.jpg') ?>" alt="">
                     </a>
                 </li>
                 <li>
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="<?= base_url('/assets/images/sidebar-3.jpg')?>" alt="">
+                        <img src="<?= base_url('/assets/images/sidebar-3.jpg') ?>" alt="">
                     </a>
                 </li>
                 <li>
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="<?= base_url('/assets/images/sidebar-4.jpg')?>" alt="">
+                        <img src="<?= base_url('/assets/images/sidebar-4.jpg') ?>" alt="">
                     </a>
                 </li>
 
@@ -279,14 +279,14 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="<?= base_url('/assets/js/plugins/bootstrap-notify.js') ?>"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="<?= base_url('/assets/js/material-dashboard.js?v=2.1.2') ?>" type="text/javascript"></script>
-    <!-- <script src="<?= base_url()?>assets/vendors/bootstrap/datatables/jquery.dataTables.min.js"></script> -->
-    <!-- <script src="<?= base_url()?>assets/vendors/bootstrap/datatables/dataTables.bootstrap4.min.js"></script> -->
+    <!-- <script src="<?= base_url() ?>assets/vendors/bootstrap/datatables/jquery.dataTables.min.js"></script> -->
+    <!-- <script src="<?= base_url() ?>assets/vendors/bootstrap/datatables/dataTables.bootstrap4.min.js"></script> -->
     <!-- Summernote JS-->
-    <script src="<?= base_url();?>assets/vendors/summernote/summernote.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendors/summernote/summernote.min.js"></script>
     <!-- SWAL2 -->
-    <script src="<?= base_url();?>assets/swal/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url(); ?>assets/swal/sweetalert2.all.min.js"></script>
     <!-- cust -->
-    <script src="<?= base_url()?>assets/js/sukema.js"></script>
+    <script src="<?= base_url() ?>assets/js/sukema.js"></script>
     <script>
     $(document).ready(function() {
         $('#summernote').summernote();
@@ -315,11 +315,11 @@ The above copyright notice and this permission notice shall be included in all c
         });
     });
 
-     /* Edit Modal */
+    /* Edit Modal */
 
     $(document).ready(function() {
         $('#edit-modal').on('show.bs.modal', function(event) {
-            var div = $(event.relatedTarget) 
+            var div = $(event.relatedTarget)
             var modal = $(this)
 
             modal.find('#edit_id').attr("value", div.data('id'));
@@ -516,7 +516,14 @@ The above copyright notice and this permission notice shall be included in all c
 
     });
 
-   
+    function myFunction() {
+        var x = document.getElementById("korp-surat");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
     </script>
 </body>
 

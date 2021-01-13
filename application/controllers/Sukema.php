@@ -9,7 +9,7 @@ class Sukema extends CI_Controller {
 	{
 		parent::__construct();
 		$this->setsession();
-		$this->load->helper('autonumber');
+		$this->load->helper('Sukema');
 		
 	}
 
@@ -517,6 +517,16 @@ class Sukema extends CI_Controller {
 		$data['ttdyayasan'] = $this->enhamodel->getTtdYayasan();
 		$data['skguru']= $this->enhamodel->getSkGuru();
 		$this->template->load('templates/template', 'form_cetakskguru', $data);
+	
+	}
+
+	public function cetakpdf()
+	{
+		$data['korpsurat'] = $this->enhamodel->getProfile();
+		$data['ttdyayasan'] = $this->enhamodel->getTtdYayasan();
+		$data['skguru'] = $this->enhamodel->getSkGuru();
+		$content = $this->load->view('form_cetakskguru', $data, TRUE);
+		genPdf($content, 'SUkema', 'A4', 'portrait');
 	}
 
 

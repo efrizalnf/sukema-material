@@ -1,4 +1,22 @@
 <?php
+use Dompdf\Dompdf;
+
+function genPdf($content='', $filename='sukema_skguru', $size='A4', $orientation='portrait', $attachment=false)
+{
+// instantiate and use the dompdf class
+$dompdf = new Dompdf();
+$dompdf->loadHtml($content);
+
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper($size, $orientation);
+
+// Render the HTML as PDF
+$dompdf->render();
+
+// Output the generated PDF to Browser
+$dompdf->stream($filename, ['Attachment' => 0]);
+}
+
 
 function getAutoNumber($table, $field, $pref, $length, $where = "")
 {
