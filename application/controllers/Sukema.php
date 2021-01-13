@@ -525,8 +525,8 @@ class Sukema extends CI_Controller {
 		$data['korpsurat'] = $this->enhamodel->getProfile();
 		$data['ttdyayasan'] = $this->enhamodel->getTtdYayasan();
 		$data['skguru'] = $this->enhamodel->getSkGuru();
-		$content = $this->load->view('form_cetakskguru', $data, TRUE);
-		genPdf($content, 'SUkema', 'A4', 'portrait');
+		$content = $this->load->view('form_cetaksurat', $data, TRUE);
+		genPdf($content, 'sukema_skguru_'. str_replace(' ', '', $data['skguru'][0]['nama_guru'])."_".date("Y"), 'F4', 'portrait');
 	}
 
 

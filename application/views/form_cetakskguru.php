@@ -1,3 +1,5 @@
+
+
 <!--Content Start-->
 
 <div class="content">
@@ -21,7 +23,7 @@
                         <!-- <p class="card-category">(Silahkan pilih template untuk membuat surat keluar)</p> -->
                     </div>
                     <button onclick="myFunction()">Click Me</button>
-                    <a href="<?= base_url('sukema/cetakpdf')?>" target="_BLANK">Print</a>
+                    <a class=" btn btn-dribbble" href="<?= site_url('sukema/cetakpdf')?>" target="_BLANK">Print</a>
                     <div class="card-body">
 
                         <div class="card">

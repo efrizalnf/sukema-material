@@ -14,7 +14,8 @@ $dompdf->setPaper($size, $orientation);
 $dompdf->render();
 
 // Output the generated PDF to Browser
-$dompdf->stream($filename, ['Attachment' => 0]);
+$dompdf->stream($filename, ['Attachment' => $attachment]);
+// $dompdf->stream($filename, array("Attachment" => false));
 }
 
 
