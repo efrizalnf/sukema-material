@@ -49,7 +49,7 @@
                                             <td class="align-middle text-center"><?= $sk['tgl_pengangkatan'] ?></td>
                                             <td class="align-middle text-center"><?= $sk['thn_ajaran'] ?></td>
                                             <td class="td-actions text-center align-middle">
-                                                <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary btn-simple" type="button"><i class="material-icons">print</i></a>
+                                                <a class="btn btn-primary btn-simple" type="button" data-toggle="modal" data-target="#cetaksurat"><i class="material-icons">print</i></a>
                                                 <a href="javascript:;" data-id="" data-tgl="" data-no="" data-perihal="" data-asal="" data-foto="" class="btn btn-info btn-simple" type="button" data-toggle="modal" data-target="#edit-modal"><i class="material-icons">edit</i></a>
                                                 <button href="" class="btn btn-danger btn-simple btn-hapus"><i class="material-icons">delete</i>
                                                 </button>
@@ -69,5 +69,33 @@
         <!-- end row -->
     </div>
     <!--/.container-fluid-->
+
+    <!-- Modal cetak surat -->
+    <div class="modal fade" id="cetaksurat" tabindex="-1" role="dialog" aria-labelledby="cetaksurat" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cetaksurat">Cetak Surat</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-4 text-center">
+                            <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Tanpa Korp</a>
+                            <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Dengan Korp</a>
+                            <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Tanpa Korp & TTD</a>
+                            <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Dengan Korp & TTD</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal cetak surat -->
 </div>
 <!--/.content-->
