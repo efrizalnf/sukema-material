@@ -520,12 +520,15 @@ class Sukema extends CI_Controller {
 	
 	}
 
-	public function cetakpdf()
+	public function cetakpdf_korp()
 	{
 		$data['korpsurat'] = $this->enhamodel->getProfile();
 		$data['ttdyayasan'] = $this->enhamodel->getTtdYayasan();
 		$data['skguru'] = $this->enhamodel->getSkGuru();
-		$content = $this->load->view('form_cetaksurat', $data, TRUE);
+		// $date = strtotime($data['skguru'][0]['tgl_surat']);
+		// $newdate = format_indo(date("Y-m-d", $date));
+		// var_dump($newdate);die();
+		$content = $this->load->view('form_cetaksurat_korp', $data, TRUE);
 		genPdf($content, 'sukema_skguru_'. str_replace(' ', '', $data['skguru'][0]['nama_guru'])."_".date("Y"), 'F4', 'portrait');
 	}
 

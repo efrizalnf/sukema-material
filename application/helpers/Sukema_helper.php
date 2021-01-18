@@ -1,5 +1,5 @@
 <?php
-
+// defined('BASEPATH') or exit('No direct script access allowed');
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
@@ -37,4 +37,26 @@ function getAutoNumber($table, $field, $pref, $length, $where = "")
         $zero = $zero . "0";
     }
     return $pref . $zero . $result->NOMOR;
+}
+
+
+
+if (!function_exists('date_indo')) {
+  function date_indo($date){
+    date_default_timezone_set('Asia/Jakarta');
+    // array hari dan bulan
+    // $Hari = array("Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu");
+    $Bulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+    
+    // pemisahan tahun, bulan, hari, dan waktu
+    $tahun = substr($date,0,4);
+    $bulan = substr($date,5,2);
+    $tgl = substr($date,8,2);
+    $waktu = substr($date,11,5);
+    // $hari = date("w",strtotime($date));
+    // $result = $Hari[$hari].", ".$tgl." ".$Bulan[(int)$bulan-1]." ".$tahun." ".$waktu;
+    $result = $tgl." ".$Bulan[(int)$bulan-1]." ".$tahun." ".$waktu;
+
+    return $result;
+  }
 }

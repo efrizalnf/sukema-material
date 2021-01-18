@@ -83,7 +83,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-12 col-sm-4 text-center">
-                            <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Tanpa Korp</a>
+                            <a href="<?php base_url() ?>cetakpdf_korp/<?= $sk['id_skguru']; ?>" target="_BLANK" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Tanpa Korp</a>
                             <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Dengan Korp</a>
                             <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Tanpa Korp & TTD</a>
                             <a href="<?php base_url() ?>cetakskguru/<?= $sk['id_skguru']; ?>" class="btn btn-primary " type="button"><i class="material-icons">print</i><br>Cetak Dengan Korp & TTD</a>

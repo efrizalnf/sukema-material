@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'b4ab1b7676834e24b15e59837f5c3d85a10e4155',
+    'reference' => 'f174c17f4fbba27dc8289f592441f74beb3204ef',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'b4ab1b7676834e24b15e59837f5c3d85a10e4155',
+      'reference' => 'f174c17f4fbba27dc8289f592441f74beb3204ef',
     ),
     'dompdf/dompdf' => 
     array (
@@ -78,6 +78,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'd217848e1396ef962fb1997cf3e2421acba7f796',
+    ),
+    'tecnickcom/tcpdf' => 
+    array (
+      'pretty_version' => '6.3.5',
+      'version' => '6.3.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '19a535eaa7fb1c1cac499109deeb1a7a201b4549',
     ),
   ),
 );
