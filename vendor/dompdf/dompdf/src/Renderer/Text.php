@@ -17,6 +17,7 @@ use Dompdf\Frame;
  *
  * @package dompdf
  */
+
 class Text extends AbstractRenderer
 {
     /** Thickness of underline. Screen: 0.08, print: better less, e.g. 0.04 */
@@ -80,6 +81,12 @@ class Text extends AbstractRenderer
           array($this->_canvas->get_page_number()),
           $text
         );*/
+
+        // if ( ! class_exists( 'I18N_Arabic' ) )
+        // {
+        // $Arabic = new I18N_Arabic_Glyphs('Glyphs');
+        // $text = $Arabic->utf8Glyphs($text);
+        // }
 
         $this->_canvas->text($x, $y, $text,
             $font, $size,

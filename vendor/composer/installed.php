@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'f174c17f4fbba27dc8289f592441f74beb3204ef',
+    'reference' => '9b8b878b9ff9466c63fdc56a207eb4092bccf198',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,16 +18,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'f174c17f4fbba27dc8289f592441f74beb3204ef',
+      'reference' => '9b8b878b9ff9466c63fdc56a207eb4092bccf198',
     ),
     'dompdf/dompdf' => 
     array (
-      'pretty_version' => 'v1.0.2',
-      'version' => '1.0.2.0',
+      'pretty_version' => 'v0.8.6',
+      'version' => '0.8.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8768448244967a46d6e67b891d30878e0e15d25c',
+      'reference' => 'fbd2d339a9d648cf3dc56db08dff8acaf871cd84',
     ),
     'phenx/php-font-lib' => 
     array (
