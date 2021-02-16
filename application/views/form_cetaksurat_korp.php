@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
-
+    <meta charset="UTF-8">
     <title>Cetak PDF</title>
 
     <style>
@@ -15,6 +15,10 @@
             padding-left: 30px;
             padding-right: 30px; */
             /* padding-bottom: 80px; */
+        }
+
+        .bismillah {
+            font-family: DejaVu Sans, sans-serif;
         }
 
         .logo img {
@@ -136,6 +140,7 @@
                     </td>
                 </tr>
             </table>
+            <p class="bismillah" style="font-size:20px; text-align: center;">بِسْــــــــــــــــــمِ اللهِ الرَّحْمَنِ الرَّحِيْمِ</p>
 
         </div>
         <!-- end head surat -->
