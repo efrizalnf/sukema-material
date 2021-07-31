@@ -8,6 +8,7 @@ class Enhamodel extends CI_Model{
     private $tbsignaturekomite = 'enhas_signature_komite';
     private $tbsignatureyayasan = 'enhas_signature_yayasan';
     private $tbsuratmasuk = 'enhas_surat_masuk';
+    private $tbsuratkeluar = 'enhas_surat_keluar';
     private $tbskguru = 'enhas_sk_guru';
 
 
@@ -68,6 +69,15 @@ class Enhamodel extends CI_Model{
     public function getSuratMasuk()
     {
        return $this->db->get($this->tbsuratmasuk)->result_array();
+    }
+
+    public function getSuratKeluar($id = null)
+    {
+        if($id === null){
+            return $this->db->get($this->tbsuratkeluar)->result_array();
+        }else{
+            return $this->db->get_where($this->tbsuratkeluar,['id' => $id])->result_array();
+        }
     }
     
     public function getSuratMasukById($id)

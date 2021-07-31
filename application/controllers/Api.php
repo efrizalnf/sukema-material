@@ -1,56 +1,44 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
 
-class Api extends RestController {
-
+class Api extends RestController
+{
     function __construct()
     {
         // Construct the parent class
         parent::__construct();
+        $this->load->model('Enhamodel');
     }
 
-    public function users_get()
+    public function suratkeluar_get()
     {
-        // Users from a data store e.g. database
-        $users = [
-            ['id' => 0, 'name' => 'John', 'email' => 'john@example.com'],
-            ['id' => 1, 'name' => 'Jim', 'email' => 'jim@example.com'],
-        ];
+        $id = $this->get('id');
 
-        $id = $this->get( 'id' );
-
-        if ( $id === null )
-        {
-            // Check if the users data store contains users
-            if ( $users )
-            {
-                // Set the response and exit
-                $this->response( $users, 200 );
-            }
-            else
-            {
-                // Set the response and exit
-                $this->response( [
-                    'status' => false,
-                    'message' => 'No users were found'
-                ], 404 );
-            }
+        if ($id === null) {
+            $suratkeluar = $this->Enhamodel->getSuratKeluar();
+        } else {
+            $suratkeluar = $this->Enhamodel->getSuratKeluar($id);
         }
-        else
-        {
-            if ( array_key_exists( $id, $users ) )
-            {
-                $this->response( $users[$id], 200 );
-            }
-            else
-            {
-                $this->response( [
+
+        if ($suratkeluar) {
+            $this->response(
+                [
+                    'status' => true,
+                    'message' => 'success',
+                    'suratkeluar' => $suratkeluar,
+                ],
+                RestController::HTTP_OK,
+            );
+        }else{
+              $this->response(
+                [
                     'status' => false,
-                    'message' => 'No such user found'
-                ], 404 );
-            }
+                    'message' => 'failed',
+                ],
+                RestController::HTTP_NOT_FOUND,
+            );
         }
     }
 }

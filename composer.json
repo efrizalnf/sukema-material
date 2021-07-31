@@ -1,7 +1,8 @@
 {
     "require": {
         "dompdf/dompdf": "1.0.2",
-        "tecnickcom/tcpdf": "^6.3"
+        "tecnickcom/tcpdf": "^6.3",
+        "chriskacerguis/codeigniter-restserver": "^3.1"
     },
     "repositories": [
         {
