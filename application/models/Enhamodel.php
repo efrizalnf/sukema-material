@@ -1,6 +1,6 @@
 <?php
-class Enhamodel extends CI_Model{
-  
+class Enhamodel extends CI_Model
+{
     private $tbprofile = 'enhas_profile';
     private $tbsignaturekamad = 'enhas_signature_kamad';
     private $tbsignaturetu = 'enhas_signature_tatausaha';
@@ -10,10 +10,10 @@ class Enhamodel extends CI_Model{
     private $tbsuratmasuk = 'enhas_surat_masuk';
     private $tbsuratkeluar = 'enhas_surat_keluar';
     private $tbskguru = 'enhas_sk_guru';
-
+    private $tbtoken = 'enhas_token';
 
     /* Get Data */
-   
+
     public function getGuru()
     {
         $query = $this->db->get($this->tbguru);
@@ -38,7 +38,7 @@ class Enhamodel extends CI_Model{
     }
 
     /* This is signature models */
-    
+
     public function getTtdKamad()
     {
         return $this->db->get($this->tbsignaturekamad)->first_row();
@@ -68,18 +68,29 @@ class Enhamodel extends CI_Model{
 
     public function getSuratMasuk()
     {
-       return $this->db->get($this->tbsuratmasuk)->result_array();
+        return $this->db->get($this->tbsuratmasuk)->result_array();
     }
+
+    /* API MODELS */
 
     public function getSuratKeluar($id = null)
     {
-        if($id === null){
+        if ($id === null) {
             return $this->db->get($this->tbsuratkeluar)->result_array();
-        }else{
-            return $this->db->get_where($this->tbsuratkeluar,['id' => $id])->result_array();
+        } else {
+            return $this->db->get_where($this->tbsuratkeluar, ['id' => $id])->result_array();
         }
     }
-    
+
+    public function getToken($token)
+    {
+        return $this->db->get_where($this->tbtoken, ['token' => $token])->result_array();
+    }
+
+
+    /* END API MODELS */
+
+
     public function getSuratMasukById($id)
     {
         return $this->db->get_where($this->tbsuratmasuk, ['id_suratmasuk' => $id])->row_array();
@@ -87,9 +98,9 @@ class Enhamodel extends CI_Model{
 
     public function getSkGuru()
     {
-       return $this->db->get($this->tbskguru)->result_array();
+        return $this->db->get($this->tbskguru)->result_array();
     }
-    
+
     public function getSkGuruById($id)
     {
         return $this->db->get_where($this->tbskguru, ['id_skguru' => $id])->row_array();
@@ -100,10 +111,9 @@ class Enhamodel extends CI_Model{
     {
         $this->db->insert($this->tbsuratmasuk, $data);
     }
-    
 
     /* Edit */
-   
+
     public function updatedataruntext($data)
     {
         $this->db->replace($this->tbruntext, $data);
@@ -112,53 +122,53 @@ class Enhamodel extends CI_Model{
     public function updatedataprofile($data, $id)
     {
         $this->db->where('id_profile', $id);
-        $this->db->update($this->tbprofile, $data,  ['id_profile' => $id]);
+        $this->db->update($this->tbprofile, $data, ['id_profile' => $id]);
         return true;
     }
 
-      public function updatettdkamad($data, $id)
+    public function updatettdkamad($data, $id)
     {
         $this->db->where('id_kamad', $id);
-        $this->db->update($this->tbsignaturekamad, $data,  ['id_kamad' => $id]);
+        $this->db->update($this->tbsignaturekamad, $data, ['id_kamad' => $id]);
         return true;
     }
 
-     public function updatettdtatausaha($data, $id)
+    public function updatettdtatausaha($data, $id)
     {
         $this->db->where('id_tatausaha', $id);
-        $this->db->update($this->tbsignaturetu, $data,  ['id_tatausaha' => $id]);
+        $this->db->update($this->tbsignaturetu, $data, ['id_tatausaha' => $id]);
         return true;
     }
 
     public function updatettdbendahara($data, $id)
     {
         $this->db->where('id_bendahara', $id);
-        $this->db->update($this->tbsignaturebendahara, $data,  ['id_bendahara' => $id]);
+        $this->db->update($this->tbsignaturebendahara, $data, ['id_bendahara' => $id]);
         return true;
     }
 
     public function updatettdkomite($data, $id)
     {
         $this->db->where('id_komite', $id);
-        $this->db->update($this->tbsignaturekomite, $data,  ['id_komite' => $id]);
+        $this->db->update($this->tbsignaturekomite, $data, ['id_komite' => $id]);
         return true;
     }
 
     public function updatettdyayasan($data, $id)
     {
         $this->db->where('id_yayasan', $id);
-        $this->db->update($this->tbsignatureyayasan, $data,  ['id_yayasan' => $id]);
+        $this->db->update($this->tbsignatureyayasan, $data, ['id_yayasan' => $id]);
         return true;
     }
 
     public function updatesuratmasuk($data, $id)
     {
         $this->db->where('id_suratmasuk', $id);
-        $this->db->update($this->tbsuratmasuk, $data,  ['id_suratmasuk' => $id]);
+        $this->db->update($this->tbsuratmasuk, $data, ['id_suratmasuk' => $id]);
         return true;
     }
 
- /*   delete */
+    /*   delete */
     public function selectdeleteSurat($id)
     {
         return $this->db->delete($this->tbsuratmasuk, ['id_suratmasuk' => $id]);

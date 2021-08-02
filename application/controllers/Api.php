@@ -41,4 +41,30 @@ class Api extends RestController
             );
         }
     }
+
+
+     public function gettoken_get()
+    {
+        $token = $this->get('token');
+        $datatoken = $this->Enhamodel->getToken($token);
+
+        if ($datatoken) {
+            $this->response(
+                [
+                    'status' => true,
+                    'message' => 'success',
+                    'token' => $datatoken,
+                ],
+                RestController::HTTP_OK,
+            );
+        }else{
+              $this->response(
+                [
+                    'status' => false,
+                    'message' => 'token not found!',
+                ],
+                RestController::HTTP_NOT_FOUND,
+            );
+        }
+    }
 }
