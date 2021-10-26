@@ -140,7 +140,7 @@
                     </td>
                 </tr>
             </table>
-            <p class="bismillah" style="font-size:20px; text-align: center;">بِسْــــــــــــــــــمِ اللهِ الرَّحْمَنِ الرَّحِيْمِ</p>
+            {{-- <p class="bismillah" style="font-size:20px; text-align: center;">بِسْــــــــــــــــــمِ اللهِ الرَّحْمَنِ الرَّحِيْمِ</p> --}}
 
         </div>
         <!-- end head surat -->
