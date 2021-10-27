@@ -68,36 +68,36 @@
                             <div class="tab-pane" id="template_suratkeluar">
                                 <div class="padding-x-md">
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-6">
                                             <div class="card text-center">
                                                 <div class="card-header-success">
                                                     <p class="m-auto font-weight-bold">Surat Keputusan Guru</p>
                                                 </div>
                                                 <div class="card-body">
-                                                    <a type="button" class="btn btn-success rounded"
+                                                    <a type="button" class="btn-sm btn-success rounded"
                                                         href="<?= base_url('sukema/skguru') ?>">Pilih Template</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-6">
                                             <div class="card text-center">
                                                 <div class="card-header-success">
                                                     <p class="m-auto font-weight-bold">Surat Keputusan Guru</p>
                                                 </div>
                                                 <div class="card-body">
-                                                    <a type="button" class="btn btn-success rounded"
+                                                    <a type="button" class="btn-sm btn-success rounded"
                                                         href="<?= base_url('sukema/templatesurat') ?>">Pilih
                                                         Template</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-6">
                                             <div class="card text-center">
                                                 <div class="card-header-success">
                                                     <p class="m-auto font-weight-bold">Surat Keputusan Guru</p>
                                                 </div>
                                                 <div class="card-body">
-                                                    <a type="button" class="btn btn-success rounded"
+                                                    <a type="button" class="btn-sm btn-success rounded"
                                                         href="<?= base_url('sukema/templatesurat') ?>">Pilih
                                                         Template</a>
                                                 </div>

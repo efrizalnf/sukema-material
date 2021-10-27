@@ -21,9 +21,11 @@ class Sukema extends CI_Controller
 
     public function index()
     {
-        $datasession['enhas_account'] = $this->db->get_where('enhas_account', ['username' => $this->session->userdata('username')])->row_array();
+        $datasession['enhas_account'] = $this->db->get_where(
+            'enhas_account', ['username' => $this->session->userdata('username')]
+            )->row_array();
         $this->template->load('templates/template', $datasession);
-
+        
         if ($this->form_validation->run() == false) {
             $this->load->view('login/index');
         }
