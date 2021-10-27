@@ -520,6 +520,6 @@ class Sukema extends CI_Controller
         // $newdate = format_indo(date("Y-m-d", $date));
         // var_dump($newdate);die();
         $content = $this->load->view('form_cetaksurat_korp', $data, true);
-        genPdf($content, 'sukema_skguru_' . str_replace(' ', '', $data['skguru'][0]['nama_guru']) . '_' . date('Y'), 'F4', 'portrait');
+        genPdf($content, 'sukema_skguru_' . str_replace(' ', '', $data['skguru'][0]['nama_guru']) . '_' . date('Y'), 'legal', 'portrait');
     }
 }
