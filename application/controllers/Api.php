@@ -12,6 +12,36 @@ class Api extends RestController
         $this->load->model('Enhamodel');
     }
 
+    public function suratmasuk_get()
+    {
+        $id = $this->get('id');
+
+        if ($id === null) {
+            $suratmasuk = $this->Enhamodel->getSuratMasuk();
+        } else {
+            $suratmasuk = $this->Enhamodel->getSuratMasuk($id);
+        }
+
+        if ($suratmasuk) {
+            $this->response(
+                [
+                    'status' => true,
+                    'message' => 'success',
+                    'suratmasuk' => $suratmasuk,
+                ],
+                RestController::HTTP_OK,
+            );
+        }else{
+              $this->response(
+                [
+                    'status' => false,
+                    'message' => 'failed',
+                ],
+                RestController::HTTP_NOT_FOUND,
+            );
+        }
+    }
+
     public function suratkeluar_get()
     {
         $id = $this->get('id');

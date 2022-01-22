@@ -86,7 +86,7 @@
         <!-- Korp surat -->
         <div class="korp-surat">
             <div class="korp">
-                <img src="<?= base_url() ?>assets/images/surat/korp_yayasan.png" alt="logo">
+                <img src="<?= base_url('assets/images/surat/korp_yayasan.png') ?>" alt="logo">
             </div>
         </div>
         <!-- end Korp surat -->

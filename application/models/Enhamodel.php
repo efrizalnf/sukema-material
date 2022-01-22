@@ -64,16 +64,19 @@ class Enhamodel extends CI_Model
         return $this->db->get($this->tbsignatureyayasan)->first_row();
     }
 
-    /* this is fr surat masuk models */
-
-    public function getSuratMasuk()
-    {
-        return $this->db->get($this->tbsuratmasuk)->result_array();
-    }
 
     /* API MODELS */
 
-    public function getSuratKeluar($id = null)
+    public function getSuratMasuk($id = null)
+    {
+        if ($id === null) {
+            return $this->db->get($this->tbsuratmasuk)->result_array();
+        } else {
+            return $this->db->get_where($this->tbsuratmasuk, ['id' => $id])->result_array();
+        }
+    }
+
+     public function getSuratKeluar($id = null)
     {
         if ($id === null) {
             return $this->db->get($this->tbsuratkeluar)->result_array();

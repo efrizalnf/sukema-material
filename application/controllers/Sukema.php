@@ -229,12 +229,12 @@ class Sukema extends CI_Controller
         $id = $this->input->post('idtu');
         $namatatausaha = $this->input->post('namatatausaha');
         $niptatausaha = $this->input->post('niptatausaha');
-        $uploadttdtu = $_FILES['uploadttdtu']['name'];
+        $uploadttdtu = $_FILES['uploadttdtatausaha']['name'];
         $config['upload_path'] = 'assets/images/signature';
         $config['allowed_types'] = 'jpg|jpeg|png|gif|bmp';
 
         $this->load->library('upload', $config);
-        if (!$this->upload->do_upload('uploadttdtu')) {
+        if (!$this->upload->do_upload('uploadttdtatausaha')) {
             $data = [
                 'nama_tatausaha' => $namatatausaha,
                 'nip_tatausaha' => $niptatausaha,
