@@ -164,7 +164,7 @@ class Api extends RestController
             $this->response(
                 [
                     'status' => false,
-                    'message' => 'Surat Keluar Gputagal Diupdate',
+                    'message' => 'Surat Keluar Gagal Diupdate',
                 ],
                 RestController::HTTP_BAD_REQUEST,
             );
@@ -204,7 +204,7 @@ class Api extends RestController
 
     public function skyayasan_delete()
     {
-        $id = $this->delete('id');
+        $id = $this->delete('id_surat');
         if ($id === null) {
             $this->response(
                 [
@@ -214,7 +214,7 @@ class Api extends RestController
                 RestController::HTTP_BAD_REQUEST,
             );
         } else {
-            if ($this->Enhamodel->deleteSkYayasan($id) &&  $this->Enhamodel->deleteSuratKeluar($id) > 0) {
+            if ($this->Enhamodel->deleteSkYayasan($id) &&  $this->Enhamodel->deleteSuratKeluarjoin($id) > 0) {
                 $this->response(
                     [
                         'status' => true,
@@ -237,7 +237,7 @@ class Api extends RestController
     public function skyayasan_post()
     {
         $data = [
-            'id' => $this->post('id'),
+            'id_surat' => $this->post('id_surat'),
             'no_surat' => $this->post('no_surat'),
             'perihal' => $this->post('perihal'),
             'lampiran' => $this->post('lampiran'),
@@ -253,7 +253,8 @@ class Api extends RestController
         $idsurat = $this->Enhamodel->inputskyayasan('enhas_sk_guru', $data);
 
         $datasurat = [
-            'id' => $idsurat,
+            'id' => $this->post('id'),
+            'id_surat' => $idsurat,
             'no_surat' => $this->post('no_surat'),
             'perihal' => $this->post('perihal'),
             'lampiran' => $this->post('lampiran'),
@@ -286,9 +287,9 @@ class Api extends RestController
 
     public function skyayasan_put()
     {
-        $id = $this->put('id');
+        $id = $this->put('id_surat');
         $data = [
-            'id' => $this->put('id'),
+            'id_surat' => $this->put('id_surat'),
             'no_surat' => $this->put('no_surat'),
             'perihal' => $this->put('perihal'),
             'lampiran' => $this->put('lampiran'),
@@ -305,6 +306,7 @@ class Api extends RestController
 
         $datasurat = [
             'id' => $this->put('id'),
+            'id_surat' => $this->put('id_surat'),
             'no_surat' => $this->put('no_surat'),
             'perihal' => $this->put('perihal'),
             'lampiran' => $this->put('lampiran'),
@@ -314,7 +316,7 @@ class Api extends RestController
             'jenjang' => $this->put('jenjang'),
         ];
 
-        $updatedata = $this->Enhamodel->updatesuratkeluar('enhas_surat_keluar', $datasurat, $id);
+        $updatedata = $this->Enhamodel->updatesuratkeluarjoin('enhas_surat_keluar', $datasurat, $id);
 
         if ($updatedata > 0) {
             $this->response(

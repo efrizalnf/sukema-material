@@ -148,7 +148,6 @@ class Enhamodel extends CI_Model
         return $this->db->delete($this->tbsuratmasuk, ['id_suratmasuk' => $id]);
     }
 
-
     /* ====================================================================== */
 
     /* API MODELS */
@@ -167,8 +166,12 @@ class Enhamodel extends CI_Model
         if ($id === null) {
             return $this->db->get($this->tbsuratkeluar)->result_array();
         } else {
-            return $this->db->get_where($this->tbsuratkeluar, ['id
-            ' => $id])->result_array();
+            return $this->db
+                ->get_where($this->tbsuratkeluar, [
+                    'id
+            ' => $id,
+                ])
+                ->result_array();
         }
     }
 
@@ -187,7 +190,7 @@ class Enhamodel extends CI_Model
     }
 
     /* INPUT */
-    public function inputsuratkeluar($table,$datasurat)
+    public function inputsuratkeluar($table, $datasurat)
     {
         $this->db->insert($table, $datasurat);
         return $this->db->insert_id();
@@ -201,6 +204,11 @@ class Enhamodel extends CI_Model
 
     /* UPDATE  */
 
+    public function updatesuratkeluarjoin($table, $data, $id)
+    {
+        $this->db->update($table, $data, ['id_surat' => $id]);
+        return $this->db->affected_rows();
+    }
     public function updatesuratkeluar($table, $data, $id)
     {
         $this->db->update($table, $data, ['id' => $id]);
@@ -208,12 +216,17 @@ class Enhamodel extends CI_Model
     }
     public function updateskyayasan($table, $data, $id)
     {
-        $this->db->update($table, $data, ['id' => $id]);
+        $this->db->update($table, $data, ['id_surat' => $id]);
         return $this->db->affected_rows();
     }
 
     /* DELETE */
 
+    public function deleteSuratKeluarjoin($id)
+    {
+        $this->db->delete($this->tbsuratkeluar, ['id_surat' => $id]);
+        return $this->db->affected_rows();
+    }
     public function deleteSuratKeluar($id)
     {
         $this->db->delete($this->tbsuratkeluar, ['id' => $id]);
@@ -221,7 +234,7 @@ class Enhamodel extends CI_Model
     }
     public function deleteSkYayasan($id)
     {
-        $this->db->delete($this->tbskguru, ['id' => $id]);
+        $this->db->delete($this->tbskguru, ['id_surat' => $id]);
         return $this->db->affected_rows();
     }
 }
