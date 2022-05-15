@@ -64,36 +64,6 @@ class Enhamodel extends CI_Model
         return $this->db->get($this->tbsignatureyayasan)->first_row();
     }
 
-
-    /* API MODELS */
-
-    public function getSuratMasuk($id = null)
-    {
-        if ($id === null) {
-            return $this->db->get($this->tbsuratmasuk)->result_array();
-        } else {
-            return $this->db->get_where($this->tbsuratmasuk, ['id' => $id])->result_array();
-        }
-    }
-
-     public function getSuratKeluar($id = null)
-    {
-        if ($id === null) {
-            return $this->db->get($this->tbsuratkeluar)->result_array();
-        } else {
-            return $this->db->get_where($this->tbsuratkeluar, ['id' => $id])->result_array();
-        }
-    }
-
-    public function getToken($token)
-    {
-        return $this->db->get_where($this->tbtoken, ['token' => $token])->result_array();
-    }
-
-
-    /* END API MODELS */
-
-
     public function getSuratMasukById($id)
     {
         return $this->db->get_where($this->tbsuratmasuk, ['id_suratmasuk' => $id])->row_array();
@@ -106,13 +76,14 @@ class Enhamodel extends CI_Model
 
     public function getSkGuruById($id)
     {
-        return $this->db->get_where($this->tbskguru, ['id_skguru' => $id])->row_array();
+        return $this->db->get_where($this->tbskguru, ['id' => $id])->row_array();
     }
 
     /* Inputt */
     public function inputsuratmasuk($data)
     {
         $this->db->insert($this->tbsuratmasuk, $data);
+        return $this->db->affected_rows();
     }
 
     /* Edit */
@@ -176,4 +147,83 @@ class Enhamodel extends CI_Model
     {
         return $this->db->delete($this->tbsuratmasuk, ['id_suratmasuk' => $id]);
     }
+
+
+    /* ====================================================================== */
+
+    /* API MODELS */
+    /* GET */
+    public function getSuratMasuk($id = null)
+    {
+        if ($id === null) {
+            return $this->db->get($this->tbsuratmasuk)->result_array();
+        } else {
+            return $this->db->get_where($this->tbsuratmasuk, ['id' => $id])->result_array();
+        }
+    }
+
+    public function getSuratKeluar($id = null)
+    {
+        if ($id === null) {
+            return $this->db->get($this->tbsuratkeluar)->result_array();
+        } else {
+            return $this->db->get_where($this->tbsuratkeluar, ['id
+            ' => $id])->result_array();
+        }
+    }
+
+    public function getSkYayasan($id = null)
+    {
+        if ($id === null) {
+            return $this->db->get($this->tbskguru)->result_array();
+        } else {
+            return $this->db->get_where($this->tbskguru, ['id' => $id])->result_array();
+        }
+    }
+
+    public function getToken($token)
+    {
+        return $this->db->get_where($this->tbtoken, ['token' => $token])->result_array();
+    }
+
+    /* INPUT */
+    public function inputsuratkeluar($table,$datasurat)
+    {
+        $this->db->insert($table, $datasurat);
+        return $this->db->insert_id();
+    }
+
+    public function inputskyayasan($table, $data)
+    {
+        $this->db->insert($table, $data);
+        return $this->db->insert_id();
+    }
+
+    /* UPDATE  */
+
+    public function updatesuratkeluar($table, $data, $id)
+    {
+        $this->db->update($table, $data, ['id' => $id]);
+        return $this->db->affected_rows();
+    }
+    public function updateskyayasan($table, $data, $id)
+    {
+        $this->db->update($table, $data, ['id' => $id]);
+        return $this->db->affected_rows();
+    }
+
+    /* DELETE */
+
+    public function deleteSuratKeluar($id)
+    {
+        $this->db->delete($this->tbsuratkeluar, ['id' => $id]);
+        return $this->db->affected_rows();
+    }
+    public function deleteSkYayasan($id)
+    {
+        $this->db->delete($this->tbskguru, ['id' => $id]);
+        return $this->db->affected_rows();
+    }
 }
+
+/* END API MODELS */

@@ -93,8 +93,10 @@
 
         <!-- head surat -->
         <div class="head-surat">
-            <?php $date = strtotime($skguru[0]['tgl_surat']);
-            $newdate = date_indo(date('Y-m-d', $date));
+            <?php 
+            $date = strtotime($skguru[0]['tgl_surat']);
+            date_default_timezone_set('Asia/Jakarta'); 
+            $newdate = date('j F Y', $date);
             ?>
             <table>
                 <tr>
@@ -103,7 +105,8 @@
                     <td style="width: 60%;">
                         <?= $skguru[0]['no_surat'] ?>
                     </td>
-                    <td style="width: 30%; float:right;"><span class="tgl-surat">Bandung, <?= $newdate ?></span>
+                    <td style="width: 30%; float:right;"><span class="tgl-surat">Bandung, <?= 
+                    $newdate; ?></span>
                     </td>
                 </tr>
                 <tr>
