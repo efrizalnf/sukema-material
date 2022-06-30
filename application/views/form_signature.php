@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <?= form_close();?>
-                        </>
+                       
                     </div>
                 </div>
             </div>

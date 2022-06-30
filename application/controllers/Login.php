@@ -15,7 +15,6 @@ public function __construct()
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		
-
 		if ($this->form_validation->run() == false) {
 			$this->load->view('login', $data);
 		} else {
@@ -43,7 +42,7 @@ public function __construct()
 				redirect('sukema/dashboard');
 			}else{
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password salah!</div>');
-			redirect('login');
+				redirect('login');
 			}
 		}else{
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username tidak terdaftar!</div>');

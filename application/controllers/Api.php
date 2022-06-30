@@ -92,7 +92,7 @@ class Api extends RestController
                         'status' => true,
                         'message' => 'Surat Keluar Terhapus',
                     ],
-                    RestController::HTTP_OK,
+                    RestController::HTTP_CREATED,
                 );
             } else {
                 $this->response(
@@ -226,7 +226,7 @@ class Api extends RestController
                 $this->response(
                     [
                         'status' => false,
-                        'message' => 'id not found',
+                        'message' => 'id not found', 
                     ],
                     RestController::HTTP_NOT_FOUND,
                 );
